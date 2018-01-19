@@ -7,3 +7,6 @@
 - Review answers to assemssment questions
 ### 01/19/2018
 - Continuing to review answers to assessment questions
+- Finished copying over the questions
+### 01/20/2018 - TODO
+- Complete assessment questions review (add answers)

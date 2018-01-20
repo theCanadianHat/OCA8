@@ -117,7 +117,7 @@ C. The code compiles and runs without issue; therefore, option F is incorrect. T
 	- x = 1 + 5 = 6
 - The loop ends as the `count` loop expression evaluates to `3 < 3`, with `y` also taking a new value of 4. The most recent value of `x`, 6, is output, so the answer is option C. For more information, see Chapter 2.
 
-## Q5. What is the output of the following code snippit?
+## Q5. What is the output of the following code snippet?
 ```java
 13:	System.out.print("a");
 14:	try{
@@ -160,6 +160,7 @@ D. The code stats running and prints `a` and `b` on lines 13 and 15. Line 16 thr
 - F. None of the above
 
 ## A6.
+B. The code compiles successfully, so options D and E are incorrect. The value of `a` cannot be changed be the `addToInt()` method, not matter what the method does, because only a copy of the variable is passed into the parameter `x`. Therefore. `a` does not change and the output on line 9 is 15. For more information, see Chapter 4.
 
 ## Q7. What is the result of the following code?
 ```java
@@ -178,6 +179,7 @@ System.out.println(list);
 - E. The code does not compile.
 
 ## A7.
+B. The array is allowed to use an anonymous initializer because it is in the name line as the declaration. The `ArrayList` uses the diamond operator allowed since Java 7. This specifies the type matches the one on the left without having to re-type it. After adding the two  elements, `list` contains [6, 8]. We then replace the element at index 1 with 9, resulting in [6, 9]. Finally, we remove the element at index 0, leaving [9]. Option C is incorrect because arrays output something like that rather than an ArrayList. For more information, see Chapter 3.
 
 ## Q8. What is the output of the following code?
 ```java
@@ -205,6 +207,7 @@ System.out.println(list);
 - H. The code will not compile because of line 12.
 
 ## A8.
+A. The code compiles and runs without issue, so options G an H are incorrect. First, the `Reindeer` object is instantiated using the constructor that takes an `int` value. Since there is not explicit call to the parent constructor, the default no-argument `super()` is inserted as the first line of the constructor. The output us the `Deer`, followed by `Reindeer` in the child constructor, so only options A and B can be correct. Next, the method `hasHorns()` looks like and overridden method, but it is actually a hidden method since it is declared private in the parent class. Because the hidden method is referenced in the parent class, the parent version is used, so the code outputs `false`, and option A is the correct answer.
 
 ## Q9. Which of the following statements are true? (Choose all that apply)
 - A. Checked exceptions are intended to be thrown by the JVM (and not the programmer).
@@ -215,6 +218,7 @@ System.out.println(list);
 - F. Runtime exceptions are required to be caught or declared.
 
 ## A9.
+B, C. Only checked exceptions are required to be handled (caught) or declared. Runtime exceptions are commonly thrown by both the JVM and the programmer code. Checked exceptions are usually thrown by programmer code. Errors are intended to be thrown by the JVM. While a programmer could throw one, this would be a horrible practice. For more information, see Chapter 6.
 
 ## Q10. Which are true of the following code? (Choose all that apply)
 ```java
@@ -241,6 +245,7 @@ System.out.println(list);
 - G. The code does not compile.
 
 ## A10.
+C, D, F. Immediately after line 9, only `Grasshopper g1` is eligible for garbage collection since `one` and `two` point to `Grasshopper g2`. Immediately after line 10, we still only have `Grasshopper g1` eligible for garbage collection. Reference `one` points to `g1` and reference `two` is `null`. Immediately after line 11, both `Grssshopper` objects are eligible foe garbage collection since both `one` and `two` point to `null`. The code does compile. Although it is traditional to declare instance variables early in the class, you don't have to. for more information, see Chapter 1.
 
 ## Q11. What is the output of the following program?
 ```java
@@ -265,6 +270,12 @@ System.out.println(list);
 - F. The code will not compile because of line 6.
 
 ## A11.
+B. The code compiles and runs without issue; therefore, options E and F are incorrect. This type of problem is best examined one loop iteration at a time:
+- On the first iteration of the outer loop `i` is 0, so the loop continues.
+- On the first iteration of the inner loop, `i` is updated to 1 and `x` to 6. The `if-then` statement branch is not executed, and `x` is increased to 10 and `j` to 1.
+- On the second iteration of the inner loop ( since `j` = 1 and 1 <= 2), `i` is updated to 2 and `x` to 11. At this point, the `if-then` branch will evaluate to `true` for the remainder of the program run, which causes the flow to break out of the inner loop each time it is reached.
+- On the second iteration of the outer loop (since `i` = 2), `i` is updated to 3 and `x` to 12. As before, the inner loop is broken since `x` is still greater than 10.
+- On the third iteration of the outer loop, the outer loop is broken, as `i` is already not less than 3. The most recent value of `x`, 12, is output, so the answer is options B. For more information, see Chapter 2.
 
 ## Q12. What is the result of the following program?
 ```java
@@ -290,6 +301,7 @@ System.out.println(list);
 - F. Compiler error on line 11.
 
 ## A12.
+B. Line 10 calls the constructor on lines 3-5. That constructor calls the other constructor. However, the constructor on lines 6-8 assigns the method parameter to itself, which leaves the `color` instance variable on line 2 set to its default value of `null`. For more information, see Chapter 4.
 
 ## Q13. What is the output of the following program?
 ```java

@@ -8,5 +8,8 @@
 ### 01/19/2018
 - Continuing to review answers to assessment questions
 - Finished copying over the questions
-### 01/20/2018 - TODO
-- Complete assessment questions review (add answers)
+### 01/20/2018
+- ~~Complete assessment questions review (add answers)~~
+  - Got to question 12 -- not bad for a Saturday!
+### 01/21/2018 - TODO
+- Complete assessment questions review

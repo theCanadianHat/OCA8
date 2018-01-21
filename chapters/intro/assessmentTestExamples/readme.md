@@ -8,4 +8,6 @@ This is a list to map files to questions (where needed).
 - Q6 -> MathFunctions.java
 - Q8 -> Deer.java
 - Q10 -> Grasshopper.java
-- Q11 -> Egret.java
+- Q12 -> Egret.java
+- Q14 -> ChickenSong.java
+- Q15 -> FindAllTadPole.java

@@ -1,4 +1,4 @@
-# Chapter 1
+# Chapter 1 [Notes](https://github.com/theCanadianHat/OCA8/wiki/OCA:-Chapter-1-Notes)
 ## Covered Exam Objectives
 ### Java Basics
 - Define the scope of variables

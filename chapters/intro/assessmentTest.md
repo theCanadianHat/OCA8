@@ -1,7 +1,6 @@
 # Assessment Test Questions
 ### Q1. Which is the result of the following class? (Choose all that apply)
 ```java
-1:	public class \_C{
 1:	public class _C{
 2: 		private static int $;
 3:		public static void main(String[] main){

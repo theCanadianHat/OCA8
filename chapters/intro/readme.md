@@ -11,5 +11,8 @@
 ### 01/20/2018
 - ~~Complete assessment questions review (add answers)~~
   - Got to question 12 -- not bad for a Saturday!
-### 01/21/2018 - TODO
+### 01/21/2018
 - Complete assessment questions review
+- Added all files for example code
+### 01/22/2018
+- Begin reading Chapter 1

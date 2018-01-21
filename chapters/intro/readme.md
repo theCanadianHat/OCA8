@@ -14,5 +14,5 @@
 ### 01/21/2018
 - Complete assessment questions review
 - Added all files for example code
-### 01/22/2018
+### 01/22/2018 - Todo
 - Begin reading Chapter 1

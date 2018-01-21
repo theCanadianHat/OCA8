@@ -13,3 +13,7 @@
 - Know how to read or write to object fields
 - Explain an Object's Lifecycle (creation, "dereference by reassignment," and garbage collection)
 - Develop code that uses wrapper classes such as Boolean, Double, and Integer
+
+## Game Plan
+### 01/22/2018 - Todo
+- Begin reading Chapter 1

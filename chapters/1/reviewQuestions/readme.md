@@ -136,3 +136,69 @@ public class WaterFiller {
 - D. `import aquarium.*; import aquarium.jellies.*;`
 - E. `import aquarium.Water; import aquarium.jellies.Water;`
 - F. None of these imports can make the code compile
+
+### A7.
+
+### Q8.
+
+### A8.
+
+### Q9.
+
+### A9.
+
+### Q10.
+
+### A10.
+
+### Q11.
+
+### A11.
+
+### Q12.
+
+### A12.
+
+### Q13.
+
+### A13.
+
+### Q14.
+
+### A14.
+
+### Q15.
+
+### A15.
+
+### Q16.
+
+### A16.
+
+### Q17.
+
+### A17.
+
+### Q18.
+
+### A18.
+
+### Q19.
+
+### A19.
+
+### Q20.
+
+### A20.
+
+### Q21.
+
+### A21.
+
+### Q22.
+
+### A22.
+
+### Q23.
+
+### A23.

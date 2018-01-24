@@ -14,3 +14,4 @@
 ### 01/21/2018
 - Complete assessment questions review
 - Added all files for example code
+- Done with intro

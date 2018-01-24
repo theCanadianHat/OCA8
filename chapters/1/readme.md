@@ -15,5 +15,12 @@
 - Develop code that uses wrapper classes such as Boolean, Double, and Integer
 
 ## Game Plan
-### 01/22/2018 - Todo
+### 01/22/2018
 - Begin reading Chapter 1
+- Read about half of Chapter 1
+### 01/23/2018
+- Continue reading Chapter 1
+- Finished Chapter 1
+### 01/24/2018
+- Write notes for Chapter 1
+- Start on questions for Chapter 1

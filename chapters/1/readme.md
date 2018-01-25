@@ -24,3 +24,7 @@
 ### 01/24/2018
 - Write notes for Chapter 1
 - Start on questions for Chapter 1
+### 01/25/2018
+- Finished copying over questions for Chapter 1
+### 01/26/2018 - TODO
+- Answer questions from Chapter 1

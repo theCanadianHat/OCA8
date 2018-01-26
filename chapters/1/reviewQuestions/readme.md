@@ -8,6 +8,7 @@
 - F. 1980_s
 
 ### A1.
+A, B, E. Option A is valid becasue you can use the dollar sign in identifiers. Option B is valid because you can use an underscore in identifiers. Option C is not a valid identifier because `true` is a Java reserved word. Option D is not valid because the dot (.) is not allowed in identifiers. Option E is valide because Java is case sensitive, so `Public` is not a reserved word an therefore a valid identifier. Option F is not valid because the first character is not a letter, $, or _.
 
 ### Q2. What is the output of the following program?
 ```java
@@ -28,6 +29,7 @@
 - F. Empty = null, Brand = null
 
 ### A2.
+D. Boolean fields initialize to `false` and references initialize to `null`, so `empty` is `false` and `brand` is `null`. `Brand = null` is output.
 
 ### Q3. Which of the following are true? (Choose all that apply)
 ``` java
@@ -47,6 +49,7 @@
 - G. The code compiles as is.
 
 ### A3.
+B, D, E. Option A (line 4) compiles because `short` is an integral type. Option B (line 5) generates a compiler error because `int` is an integral type, but 5.6 is a floating-point type. Option C (line 6) compiles because it is assigned a `String`. Options D and E (lines 7 and 8) do not compile becasue `short` and `int` are primitives. Primitives do not allow methods to be called on them. Option F (line 9) compiles because `length()` is defined on `String`.
 
 ### Q4. Given the following class, which of the following is true? (Choose all that apply)
 ```java
@@ -69,6 +72,7 @@
 - E. None of the above changes will make the code compile
 
 ### A4.
+A, B. Adding the variable at line 2 makes `result` an instance variable. Since instance variables are in scope for the entire life of the object, option A is correct. Option B is correct because adding the variable at line 4 makes `result` a local variable with a scope if the whole method. Adding the variable at line 6 makes `result` a local variable with a scope of lines 6-7. Since it is out of scope on line 8, the `println` does not compile and option C is incorrect. Adding the variable at line 9 makes `result` a local varable with a scope of line 9 and 10. Since line 8 is before the declaration, it does not compile and option D is incorrect. Finally, option E is incorrect because the code can be made to compile.
 
 ### Q5. Give the following classes, which of the followin can independently replace `INSERT IMPORTS HERE` to make the code compile? (Choose all the apply)
 ```java
@@ -91,6 +95,7 @@ public class AquariumVisitor {
 - F. None of these can make the code compile
 
 ### A5.
+C, D. Option C is correct because it imports `Jelly` by classname. Option D is correct because it imports all the classes in the `jellies` package, which includes `Jelly`. Option A is incorrect because it only imports classes in the `aquarium` package -- `Tank` in this case -- and not those in lower-level packages. Option B is incorrect because you cannot use wildcards anyplace other than the end of an import statement. Option E is incorrect because you cannot import parts of a class with a regular import statement. Option F is incorrect because options C and D do make the code compile.
 
 ### Q6. Given the foloowing classes, what is the maximum number of imports that can be removed and have the code still compile?
 ```java
@@ -113,6 +118,7 @@ public class Tank {
 - F. Does not compile.
 
 ### A6.
+E. The first two imports can be removed because `java.lang` is automatically imported. The second two imports can be removed because `Tank` and `Water` are in the same package, makin the correct answer E. If `Tank` and `Water` were in different packages, one of these two imports could be removed. In that case, the anser would be option D.
 
 ### Q7. Given the following classes, which of the following snippets can be inserted in the place of `INSERT IMPORTS HERE` and have the code compile? (Choose all that apply)
 ```java
@@ -138,6 +144,7 @@ public class WaterFiller {
 - F. None of these imports can make the code compile
 
 ### A7.
+A, B, C. Option A is correct because it imports all the classes in the `aquarium` package including `aquarium.Water`. Option B and C are correct because they import `Water` by classname. Since importing by classname takes precedence over wildcards, these compile. Option D is incorrect because Java doesn't know which of the two wildcard `Water` classes to use. Option E is incorrect because you cannot specify the same classname in two imports.
 
 ### Q8. Given the following class, which of the following calls pring out `Blue Jay`? (Choose all that apply)
 ```java
@@ -155,6 +162,7 @@ public class BirdDisplay {
 - G. Does not compile
 
 ### A8.
+B. Option B is correct because arrays starts counting from zero and strings with spaces must be in quotes. Option A is incorrect because it ouputs `Blue`. C is incorrect because it outputs `Jay`. Option D is incorrect because it outputs `Sparrow`. Options E and F are incorrect because the output `Error: Could not find or load main class BirdDisplay.class`.
 
 ### Q9. Which of the following legally fill in the blank so you can run the `main()` method from the command line? (Choose all that apply)
 ```java
@@ -169,6 +177,7 @@ public static void main(_______)
 - G. None of the above
 
 ### A9.
+A, C, D, E. Option A is correct because it is the traditional `main()` method signature and variables may begin with underscores. Options C and D are correct because the array operator may appear after the variable name. Option E is correct because varargs are allowed in place of an array. Option B is incorrect because variables are not allowed to begin with a digit. Option F is incorrect because the argument must be an array or varargs. Option F is a perfectly goog method. However, it is not one that can be run from the command line because it has the wrong parameter type.
 
 ### Q10. Which of the following are legal entry point methods that can be run form the command line? (Choose all that apply)
 - A. `private static void main(String[] args)`
@@ -180,6 +189,7 @@ public static void main(_______)
 - G. None of the above
 
 ### A10.
+E. Option E is the canonical `main()` method signature. You need to memorize it. Option A is incorrect because the `main()` method mist be `public`. Options B and F are incorrect because `main()` method must have a `void` return type. Option C is incorrect becasue `main()` must be `static`. Option D is incorrect because the `main()` method must be named `main`.
 
 ### Q11. Which of the following are true? (Choose all that apply)
 - A. An instance variable of type `double` defaults to `null`
@@ -191,6 +201,7 @@ public static void main(_______)
 - G. None of the above
 
 ### A11.
+C, D. Option C is correct because all non-primitive values default to `null`. Option D is correct because `float` and `double` primitives default to `0.0`. Option B and E are incorrect because `int` primitive defauls to `0`.
 
 ### Q12. Which of the following are true? (Choose all that apply)
 - A. A local variable of type `boolean` defaults to `null`
@@ -202,6 +213,7 @@ public static void main(_______)
 - G. None of the above
 
 ### A12.
+G. Option G is correct because local variables do not get assigned default values. The code fails to compile if a local variable is not explicitly initialized. If this question were about instance variables, option D and F would be correct. A `boolean` primitive defualts to `false` and a `float` primitive defaults to `0.0`.
 
 ### Q13. Which of the following are true? (Choose all that apply)
 - A. An instance variable of type `boolean` defaults to `false`
@@ -213,6 +225,7 @@ public static void main(_______)
 - G. None of the above
 
 ### A13.
+A, D. Options A and D are correct because `boolean` primitives default to `false` and `int` primitives default to `0`.
 
 ### Q14. Given the following class in the file `/my/directory/named/A/Bird.java`:
 ```java
@@ -227,7 +240,9 @@ Which of the following replaces `INSERT CODE HERE` if we compile from `/my/direc
 - E. `package a;`
 - F. `package A;`
 - G. Does not compile
+
 ### A14.
+D. The package name represents any folders underneath the curent path, which is `named.A` in this case. Option C is incorrect because package names are case sensitive, just like variable names and other indentifiers.
 
 ### Q15. Which of the following lines of code compile? (Choose all that apply)
 - A. `int i1 = 1_234;`
@@ -238,6 +253,7 @@ Which of the following replaces `INSERT CODE HERE` if we compile from `/my/direc
 - F. None of the above
 
 ### A15.
+A, E. Underscores are allowed as long as they are directly between two other digits. This means options A and E are correct. Options B and C are incorrect because the underscore is adjacent to the decimal point. Option D is incorrect because the underscore is the last character.
 
 ### Q16. Given the following class, whihc of the following lines of code can replace `INSERT CODE HERE` to make the code compile? (Choose all that apply)
 ```java
@@ -256,6 +272,7 @@ public class Price {
 - G. None of the above
 
 ### A16.
+B, C, D. `0b` is the prefix for a binary value and is correct. `0x` is the prefix for a hexadecimal value. This value cane be assigned to many primitive types, including `int` and `double`, making options C and D correct. Option A is incorrect because `9L` is a `long` value. `long amount = 9L` would be allowed. Option E is incorrect because the underscoreis immediately before the decimal. Option F is incorrect because the underscore is the very last character.
 
 ### Q17. Which of the following are true? (Choose all that apply)
 ```java
@@ -273,6 +290,7 @@ public class Bunny {
 - G. None of the above
 
 ### A17.
+A, E. `Bunny` is a class, which can be seen from the declaration: `public class Bunnny`. `bun` is a reference to and object. `main()` is a method.
 
 ### Q18. Which represent the order in which the following statements can be assembled into a program that will compile successfully? (Choose all that apply)
 ```java
@@ -289,6 +307,7 @@ C:  package animals;
 - G. A, B
 
 ### A18.
+C, D, E. `package` and `import` are both optional. If both are present, the order must be `package`, then `import`, then `class`. Option A is incorrect because `class` is before `package` and `import`. Option B is incorrect because `import` is before `package`. Option F is incorrect because `class` is before `package`. Option G is incorrect because `class` is before `import`.
 
 ### Q19. Suppose we have a class named `Rabbit`. Which of the following statements are true? (Choose all that apply)
 ```java

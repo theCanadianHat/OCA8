@@ -332,6 +332,7 @@ C, D, E. `package` and `import` are both optional. If both are present, the orde
 - F. The `Rabbit` object from line 4 is first eligible for garbage collection immediately following line 12.
 
 ### A19.
+B, D. The `Rabbit` object from line 3 has two references to it: `one` and `three`. The references are nulled out on lines 6 and 8, respectively. Option B is correct because this makes the object eligible for garbage collection after line 8. Line 7 sets the reference `four` to the now null `one`, which means it has no effect on garbage collection. The `Rabbit` object from line 4 only has a single reference to it: `two`. Option D is correct because this single reference becomes `null` on line 9. The `Rabbit` object declared on line 10 becomes eligible for garbage collection at the end of the method on line 12. Calling `System.gc()` has no effect on eligibility for garbage collection.
 
 ### Q20. What is true about the following code? (Choose all that apply)
 ```java
@@ -354,6 +355,7 @@ public static void main(String[] args) {
 - G. The code does not compile
 
 ### A20.
+B, E. Calling `System.gc()` suggests that Java might wish to run the garbage collector. Java is free to ignore the request, making option E correct. `finalize()` runs if an object attempts to be garbage collected, making option B correct.
 
 ### Q21. What does the following code output?
 ```java
@@ -375,6 +377,7 @@ public static void main(String[] args) {
 - F. Compilation fails on line 8.
 
 ### A21.
+A. While the code on line 3 does compile, it is not a constructor because it has a return type. It is a method that happens to have the same name as the class. When the code runs, the defualt constructor is called and count has the default value (0) for and `int`.
 
 ### Q22. Which of the following are true statements? (Choose all that apply)
 - A. Java allows operator overloading.
@@ -385,6 +388,7 @@ public static void main(String[] args) {
 - F. Java is a functional programming language.
 
 ### A22.
+B, E. C++ has operator overloading and pointers. Java made a point of not having either. Jave does have references to objects, but these are pointing to an object that can move around in memory. Option B is correct because Java is playform independent. Option E is correct because Java is object oriented. While it does support some parts of functional programming, these occure within a class.
 
 ### Q23. Which of the following are true? (Choose all that apply)
 - A. `javac` compiles a `.class` file into a `.java` file.
@@ -395,3 +399,4 @@ public static void main(String[] args) {
 - F. Java takes the name of the `.class` file as a parameter.
 
 ### A23.
+C, D. Java puts source code in `.java` files and bytecode in `.class` files. Id does not use a `.bytecode` file. When running a Java program, you pass just the name of the class without the `.class` extension.

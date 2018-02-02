@@ -28,6 +28,5 @@
 - Finished copying over questions for Chapter 1
 ### 01/26/2018 
 - Answer questions from Chapter 1: 1-18
-### 01/29/2018 - TODO
+### 01/29/2018
 - Complete questions from Chapter 1
-- Start reading Chapter 2

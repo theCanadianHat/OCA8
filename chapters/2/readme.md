@@ -11,3 +11,13 @@
 - Create and use do/while loops
 - Compare loop constructs
 - Use break and continue
+
+## Game Plan
+### 1/29/2018
+- Start reading chapter 2
+
+### 2/1/2018
+- Complete reading chapter 2
+
+### 2/2/2018
+- Start on Chapter 2 review questions

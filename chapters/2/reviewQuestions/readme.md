@@ -9,6 +9,7 @@
 - D. !
 - E. %
 - F. <=
+
 A, D. Option A is the equality operator and can be used on numeric primitives, boolean values, and object references. Options B and C are both arithmetic operators and cannot be applied to a boolean value. Option D is the logical complement operator and is used exclusively with boolean values. Option E is the modulus operator, which can only be used with numeric preimitives. Finally, option F is a relational operator that compares the values of two numbers.
 
 ### Q2. What data type (or types) will allow the following code snippet to compile? (Choose all that apply)
@@ -25,6 +26,7 @@ ____ z = x + y;
 - D. `double`
 - E. `short`
 - F. `byte`
+
 A, B, D. The value `x + y` is automatically promoted to `int`, so `int` and data types that can be promoted automatically from  `int` will work. Options A, B, D are such data types. Option C will not work because `boolean` is not a numeric data type. Options E and F will not work without an explicit cast to a smaller data type.
 
 ### Q3. What is the output of the following application?
@@ -45,6 +47,7 @@ A, B, D. The value `x + y` is automatically promoted to `int`, so `int` and data
 - D. false,11
 - E. The code will not compile becasue of line 4.
 - F. The code will not compile becasue of line 5.
+
 F. In this example, the ternary operator has two expressions, one of them a `String` and the other a `boolean` value. The ternary operator is permitted to have expressions that don't have matching types, but the key here is the assignment to the `String` reference. The compiler knows how to assign the first expression value as a `String`, but the second `boolean` expression cannot be set as a `String`; therefore, this line will not compile.
 
 ### Q4. What change would allow the following code snippet to compile? (Choose all that apply)
@@ -59,6 +62,7 @@ F. In this example, the ternary operator has two expressions, one of them a `Str
 - D. Cast `2 * x` on line 4 to `int`.
 - E. Change the data type of `y` on line 4 to `short`.
 - F. Change the data type of `y` on line 4 to `long`.
+
 B, C, D, F. The code will not compile as is, so option A is not correct. The value `2 * x` is automatically promoted to `long` and coannot be automatically stored in `y`, which is in an `int` value. Options B, C, and D solve this problem by reducing the `long` value to `int`. Option E does not solve the problem and actually makes it worse by attempting to place the value in a smaller data type. Option F solves the problem by increasing the data type of the assignment so that `long` is allowed. 
 
 ### Q5. What is the output of the following code snippet?
@@ -78,6 +82,7 @@ B, C, D, F. The code will not compile as is, so option A is not correct. The val
 - D. The code will not compile becasue of line 7.
 - E. The code will not compile becasue of line 8.
 - F. The code contains an infinite lop and does not terminate.
+
 C. This code does not contain any compilation errors or an infinite loop, so options D, E and F are incorrect. The `break` statement on line 8 causes the loop to execute once and finish, so option C is the correct answer.
 
 ### Q6. What is the output of the followig code snippet?
@@ -95,6 +100,7 @@ C. This code does not contain any compilation errors or an infinite loop, so opt
 - D. Compiles but throws a `NullPointerException`.
 - E. The code will not compile becasue of line 6.
 - F. The code will not compile becasue of line 7.
+
 F. The code does not compile because two `else` statements cannot be chained together without additional `if-then` statements, so the correct anser is option F. Option E is incorrect as line 6 by itself does not cause a problem, only when it is paired with line 7. One way to fix this code so it compiles would be to add an `if-then` statement on line 6. The other solution would be to remove line 7.
 
 ### Q7. What is the output of the following code?
@@ -112,6 +118,7 @@ F. The code does not compile because two `else` statements cannot be chained tog
 - D. 8
 - E. 7
 - F. The code will not compile becasue of line 4.
+
 D. As you learned in the section "Ternary Operator," although parenthese are not required, thyey do geatly increase code readability, such as the following equivalent statement:
 `System.out.println((x > 2) ? ((x < 4) ? 10 : 8) : 7 )`
 We apply the outside ternary operator first, as it is possible the inner ternary expression may never be evaluated. Since `(x > 2)` is `true`, this reduces the problem so:
@@ -132,6 +139,7 @@ Since `x` is greater than 2, the anwer is 8, or option D in this case.
 - D. false, 20, false
 - E. None of the above.
 - F. The code will not compile becasue of line 5.
+
 B. This example is tricky because of the second assignment operator embedded in line 5. The expression `(z=false)` assigns the value of `false` to `z` and returns `false` for the entire expression. Since `y` does not equal 10, the left-hand side retuns `true`; therefore, the exclusive or (^) of the entire expression assigned to `x` is `true`. The ouput reflects these assignments, with no change to `y`, so option B is the only correct answer. The code compiles and runs without issue, so option F is not correct.
 
 ### Q9. How many times will the following code print `"Hello World"`?

@@ -156,6 +156,7 @@ B. This example is tricky because of the second assignment operator embedded in 
 - D. The code will not compile becasue of line 3.
 - E. The code will not compile becasue of line 4.
 - F. The code contains and infinite loop and does not terminate.
+
 F. In this example, the update statement of the `for loop` is missing, which is fine as the statement is optional, so option D is incorrect. The expression inside the loop increments `i` but then assigns `i` the old value. Therefore, `i` ends the loop with the same value that is starts with: 0. The loop will repeat infinitely, outputting the same statement over and over again because `i` remains 0 after every iteraton of the loop.
 
 ### Q10. What is the output of the following code?
@@ -170,6 +171,7 @@ F. In this example, the update statement of the `for loop` is missing, which is 
 - C. 90
 - D. The code will not compile becasue of line 4.
 - E. An undefined value.
+
 D. Line 4 generates a possible loss of precision compiler error. The `cast` operator has the highest precedence, so it is ealuated first, casting `a` to a byte. Then, the addition is evaluated, causing both `a` and `b` to be promoted to `int` values. The value 90 is an `int` and cannot be assigned to the byte `sum` without an explicit cast, so the code does not compile. The code could be corrected with parentheses around (`a + b`), in which case option C would be the correct answer.
 
 ### Q11. What is the output of the following code?
@@ -186,6 +188,7 @@ D. Line 4 generates a possible loss of precision compiler error. The `cast` oper
 - C. 5
 - D. 6
 - E. The code will not compile because of line 3.
+
 A. The `*` and `%` have the same operator precedence, so the expression is evaluated from left-to-right. The result of `5 * 4` is 20, and `20 % 3` is 2 (20 divided by 3 is 18, the remainder is 2). The output is 2 and option A is the correct answer.
 
 ### Q12. What is the output of the following code snippet?
@@ -200,6 +203,7 @@ A. The `*` and `%` have the same operator precedence, so the expression is evalu
 - B. Failure
 - C. The code will not compile becasue of line 4.
 - D. The code will not compile becasue of line 5.
+
 D. The variable `x` is an `int` and `s` is a reference to a `String` object. The two data types are incomparable because neither variable can be converted to the other variable's type. The compiler error occurs on line 5 when the comparison is attempted, so the answer is option D.
 
 ### Q13. What is the output of the following code snippet?
@@ -214,6 +218,7 @@ D. The variable `x` is an `int` and `s` is a reference to a `String` object. The
 - B. Failure
 - C. The code will not compile becasue of line 4.
 - D. The code will not compile becasue of line 5.
+
 A. The code compiles successfully, so options C and D are incorrect. The value of `b` after line 4 is `false`. However, the `if-then` statement on line 5 contains an assignment, not a comparison. The variable `b` is assigned `true` on line 3, and the assignment operator returns `true`, so line 5 executes and displays `Success`, so the answer is option A.
 
 ### Q14. What is the output of the following code snippet?
@@ -230,6 +235,7 @@ A. The code compiles successfully, so options C and D are incorrect. The value o
 - D. 15
 - E. 16
 - F. The code will not compile because of line 5.
+
 C. The code compiles successfully, so option F is incorrect. On line 5, the pre-increment operator is used, so `c` is incremented to 4 and the new value is returned to the expression. The value of 12, whihc is output on line 6. Therefore, option C is the correct answer.
 
 ### Q15. What is the out of the following code snippet?
@@ -247,6 +253,7 @@ C. The code compiles successfully, so option F is incorrect. On line 5, the pre-
 - D. The code will not compile becasue of line 3.
 - E. The code will not compile becasue of line 4.
 - F. The code contains and infinite loop and does not terminate.
+
 E. This is actually a much simpler problem than it appears to be. The `while` statement on line 4 is missing parentheses, so the code will not compile, and option E is the correct answer. If the parentheses were added, through, option F would be the correct answer since the loop does not use curly braces to include `x++` and the boolean expression never changes. Finally, if curly braces were added around both expressions, the output would be 10, 6 and option B would be correct.
 
 ### Q16. What is the out of the following code snippet?
@@ -262,6 +269,7 @@ E. This is actually a much simpler problem than it appears to be. The `while` st
 - C. 1 2 3 4 5 6 7 8 9 10 11
 - D. The code will not compile becasue of line 6.
 - E. The code contains and infinite loop and does not terminate.
+
 D. The variable `y` is declared within the body of the `do-while` statement, so it is out of scope on line 6. Line 6 generates a compiler error, so option D is the correct answer.
 
 ### Q17. What is the out of the following code snippet?
@@ -282,6 +290,7 @@ D. The variable `y` is declared within the body of the `do-while` statement, so 
 - D. 11
 - E. 15
 - F. The code will not compile because of line 8.
+
 D. The code compiles without issue, so option F is incorrect. After the first execution of the loop, `i` is decremented to 9 and `result` to 13. Since `i` is not 8, `keepGoing` remains `true`, and the loop continues. On the next iteration, `i` is decremented to 8 and `result` to 11. On the second execution, `i` does equal 8, so `keepGoing` is set to `false`. At the conclusion of the loop, the loop terminates since `keepGoing` is no longer `true`. The value of `result` is 11, and the correct answer is option D.
 
 ### Q18. What is the output of the following code snippet?
@@ -301,6 +310,7 @@ D. The code compiles without issue, so option F is incorrect. After the first ex
 - D. 4
 - E. 6
 - F. The code will not compile because of line 6.
+
 B. The expression on line 5 is `true` when `row * col` is an even number. On the first iteration, `row = 1` and `col = 1`, so the expression on line 6 is `false`, the `continue` is skipped, and `count` is incremented to 1. On the second iteration, `row = 1` and `col = 2`, so the expression on line 6 is `true` and the `continue` ends the outer loop with `count` still at 1. On the third iteration, `row = 2` and `col = 1`, so the expression on line 6 is `true` and the `continue` ends the outer loop with `count` still at 1. On the fourth iteration, `row = 3` and `col = 1`, so the expression on line 6 is `false` the `continue` is skipped, and `count` is incremented to 2. The result of 2 is displayed, so the answer is option B.
 
 ### Q19. What is the output of the following code snippet?
@@ -320,6 +330,7 @@ B. The expression on line 5 is `true` when `row * col` is an even number. On the
 - D. 36
 - E. 50
 - F. The code will not compile because of line 7.
+
 D. Prior to the first iteration, `m = 9`, `n = 1`, and `x = 0`. After the iteration of the firat loop, `m` is updated to 8, `n` to 3, and `x` to the sum of the new values for `m + n`, 0 + 11 = 11. After the iteration of the second loop, `m` is updated to 7, `n` to 5, and `x` to the sum of the new values for `m + n`, 11 + 12 = 23. After the iteration of the third loop, `m` is updated to 6, `n` to 7, and `x` ro the sume of the new values for `m + n`, 23 + 13 = 36. On the fourth iteration of the loop, `m > n` evaluates to `false`, as 6 > 7 is not `true`. The loop ends and the most recent value of `x`, 36, is output, so the correct answer is option D.
 
 ### Q20. What is the output of the following code snippet?
@@ -340,4 +351,5 @@ D. Prior to the first iteration, `m = 9`, `n = 1`, and `x = 0`. After the iterat
 - C. The code will not compile because of line 3.
 - D. The code will not compile because of line 6.
 - E. The code will not compile because of line 6 and 9.
+
 B. The code compiles and runs with out issue, so options C, D, and E are not correct. The value of `grade` is `'B'` and there is a matching `case` statement that will cause `"great"` to be printed. There is no `break` statement after the `case`, though, so the next `case` statement will be reached, and `"good"` will be printed. There is a `break` after this `case` statement, though, so the `switch` statement will end. The correct answer is thus option B.

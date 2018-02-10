@@ -27,37 +27,99 @@
 
 ### A2.
 
-### Q3.
+### Q3. Which are true statements? (Choose all that apply)
 ### A3.
 
-### Q4.
+### Q4. What is the result of the following code?
+```java
+7:  StringBuilder sb = new StringBuilder();
+8:  sb.append("aaa").insert(1, "bb").insert(4, "ccc");
+9:  System.out.println(sb);
+```
 ### A4.
 
-### Q5.
+### Q5. What is the result of the following code?
+```java
+2:  String s1 = "java";
+3:  StringBuilder s2 = new StringBuilder("java");
+4:  if (s1 == s2)
+5:    System.out.print("1");
+6:  if (s1.equals(s2))
+7:    System.out.print("2");
+```
 ### A5.
 
-### Q6.
+### Q6. What is the result of the following code?
+```java
+public class Lion {
+  public void roar(String roar1, StringBuilder roar2) {
+     roar1.concat("!!!");
+     roar2.append("!!!");
+  }
+public static void main(String[] args) {
+  String roar1 = "roar";
+  StringBuilder roar2 = new StringBuilder("roar");
+  new Lion().roar(roar1, roar2);
+  System.out.println(roar1 + " " + roar2);
+} }
+```
 ### A6.
 
-### Q7.
+### Q7. Which are the results of the following code? (Choose all that apply)
+```java
+String letters = "abcdef";
+System.out.println(letters.length());
+System.out.println(letters.charAt(3));
+System.out.println(letters.charAt(6));
+```
 ### A7.
 
-### Q8.
-### A8.
+### Q8. 
+```java
+String numbers = "0123456789";
+System.out.println(numbers.substring(1, 3));
+System.out.println(numbers.substring(7, 7));
+System.out.println(numbers.substring(7));
+```
+### A8. 
 
-### Q9.
+### Q9. What is the result of the following code?
+```java
+3:  String s = "purr";
+4:  s.toUpperCase();
+5:  s.trim();
+6:  s.substring(1, 3);
+7:  s += " two";
+8:  System.out.println(s.length());
+```
 ### A9.
 
-### Q10.
+### Q10. What is the result of the following code? (Choose all the apply)
+```java
+13: String a = "";
+14: a += 2;
+15: a +='c';
+16: a += false;
+17: if( a == "2cfalse") System.out.println("==");
+18: if( a.equals("2cfalse")) System.out.println("equls");
+```
 ### A10.
 
-### Q11.
+### Q11. What is the result of the following code?
+```java
+4:  int total = 0;
+5:  StringBuilder letters = new StringBuilder("abcdefg");
+6:  total += letters.substring(1, 2).length();
+7:  total += letters.substring(6, 6).length();
+8:  total += letters.substring(6, 5).length();
+9:  System.out.println(total);
+```
 ### A11.
 
-### Q12.
+### Q12. 
 ### A12.
 
-### Q13.
+### Q13. What is the result of the following code?
 ### A13.
 
 ### Q14.

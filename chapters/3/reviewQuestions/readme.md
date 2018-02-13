@@ -20,6 +20,7 @@
 - G. The code does not compile.
 
 ### A1.
+G. Line 5 does not compile. This question is checking to see if you are paying attention to the types. `numFish` is an `int` and 1 is an `int`. Therefore, we use numeric addition and get 5. The problem is that we can't store an `int` in a `String` variable. Supposing line 5 said `String anotherFish = numFish + 1 + "";`. In that case, the answer would be options A and D. The variable defined on line 5 be the string "5", and both output statements would use concatenation.
 
 ### Q2. Which of the followoing are output by this code? (Choose all that apply)
 ```java
@@ -39,6 +40,7 @@
 - F. The code does not compile.
 
 ### A2.
+A, C, D. The code compiles fine. Line 3 points to the `String` in the string pool. Line 4 calls the `String` constructor explicitly and is therefore a different object than `s`. Lines 5 and 7 check for object equality, which is true, and so print `one` and `three`. Line 6 uses object reference equality, which is not true since we have different objects. Line 7 also compares references but is true since both references point to the object from the string pool. Line 8 also compares references but is true since both references point to the object from the string pool. Finally, line 9 compares one object from the string pool with one that was explicitly constructed and returns `false`.
 
 ### Q3. Which are true statements? (Choose all that apply)
 - A. An immutable object can be modified.
@@ -50,6 +52,7 @@
 - G. `StringBuilder` is immutable.
 
 ### A3.
+B, C, E. Immutable means the state of an object cannot change once it is created. Immutable objects can be garbage collected just like mutable objects. `String` is immutable. `StringBuilder` can be mutated with methods like `append()`. Although `StringBuffer` isn't on the exam, you should know about it anyway in case older questions haven't been removed.
 
 ### Q4. What is the result of the following code?
 ```java
@@ -58,13 +61,14 @@
 9:  System.out.println(sb);
 ```
 - A. abbaaccc
-- B. abbacca
+- B. abbaccca
 - C. baaaccc
 - D. bbaaccca
 - E. An exception is thrown.
 - F. The code does not compile.
 
 ### A4.
+B. This example uses method chaining. After the call to `append()`, `sb` contains `"aaa"`. That result is passed to the first `insert()` call, which inserts at index 1. At this point `sb` contains `abbaa`. That result is passed into the final `insert()`, which inserts at index 4, resulting in `abbaccca`
 
 ### Q5. What is the result of the following code?
 ```java
@@ -83,6 +87,7 @@
 - F. The code does not compile.
 
 ### A5.
+F. The question is trying to distract you into paying attention to logical equality versus object reference equality. It is hoping you will miss the fact that line 4 does not compile. Java does not allow you to compare `String` and `StringBuilder` using `==`.
 
 ### Q6. What is the result of the following code?
 ```java
@@ -106,6 +111,7 @@ public class Lion {
 - F. The code does not compile.
 
 ### A6.
+B. A `String` is immutable. Calling `concat()` returns a new `String` but does not change the original. A `StringBuilder` is mutable. Calling `append()` adds characters to the existing character sequence along with returning a reference to the same object.
 
 ### Q7. Which are the results of the following code? (Choose all that apply)
 ```java
@@ -122,22 +128,25 @@ System.out.println(letters.charAt(6));
 - F. The code does not compile.
 
 ### A7.
+B, D, E. `length()` is simply a count of the number of characters in a `String`. In this case, there are six characters. `charAt()` returns the character at that index. Remember that indexes are zero based, which means that index 3 corresponds to `d` and index 6 corresponds to 1 past the end of the array. A `StringIndexOutOfBoundsException` is thrown for the last line.
 
 ### Q8. 
 ```java
-String numbers = "0123456789";
+String numbers = "012345678";
 System.out.println(numbers.substring(1, 3));
 System.out.println(numbers.substring(7, 7));
 System.out.println(numbers.substring(7));
 ```
-- A. abbaaccc
-- B. abbacca
-- C. baaaccc
-- D. bbaaccca
-- E. An exception is thrown.
-- F. The code does not compile.
+- A. 12
+- B. 123
+- C. 7
+- D. 78
+- E. A blank line.
+- F. An exception is thrown.
+- G. The code does not compile.
 
 ### A8.
+A, D, E.`substring()` have two forms. The first takes the index to start with and the index to stop immediately before. The second takes just the index to start with and goes to the end of the `String`. Remember that indexes are zero based. The first call starts at index 1 and ends before index 2 since it needs to stop before index 3. The second call starts at index 7 and ends in the same place, resulting in an empty `String`. This prints out a blank line. The final call starts at index 7 and goes to the end of the `String`.
 
 ### Q9. What is the result of the following code?
 ```java
@@ -156,6 +165,7 @@ System.out.println(numbers.substring(7));
 - F. The code does not compile.
 
 ### A9.
+C. This question is trying to see if you know that `String` objects are immutable. Line 4 returns "PURR" but the result is ignored and not stored in `s`. Line 5 returns "purr" since there is no whitespace present but the result is again ignored. Line 6 returns "ur" because it starts with index 1 and ends before index 3 using zero-based indexes. The result is ignored again. Finally, on line 6 something happens. We concatenate four new chracters to `s` and now have a `String` of length 8.
 
 ### Q10. What is the result of the following code? (Choose all the apply)
 ```java
@@ -164,7 +174,7 @@ System.out.println(numbers.substring(7));
 15: a +='c';
 16: a += false;
 17: if( a == "2cfalse") System.out.println("==");
-18: if( a.equals("2cfalse")) System.out.println("equls");
+18: if( a.equals("2cfalse")) System.out.println("equals");
 ```
 - A. Compile error on line 14.
 - B. Compile error on line 15.
@@ -173,7 +183,9 @@ System.out.println(numbers.substring(7));
 - E. ==
 - F. equals
 - G. An exception is thrown.
+
 ### A10.
+F. `a += 2` expands to `a = a + 2`. A `String` concatenated with any other type gives a `String`. Lines 14, 15, and 16 all append to `a`, giving a result of `"2cfalse"`. The `if` statement on line 18 returns `true` because the values of the two `String` objects are the same using object equality. The `if` statement on line 17 returns `false` because the two `String` objects are not the same in memory. One comes directly from the string pool and the other comes from building using `String` operations.
 
 ### Q11. What is the result of the following code?
 ```java
@@ -192,6 +204,7 @@ System.out.println(numbers.substring(7));
 - F. The code does not compile.
 
 ### A11.
+E. Line 6 adds 1 to `total` because `substring()` includes the starting index but not the ending index. Line 7 adds 0 to `total`. Line 8 is a problem: Java does not allow the indexes to be specified in reverse order and the code throws a `StringIndexOutOfBoundsException`.
 
 ### Q12. What is the result of the following code? (Choose all that apply)
 ```java
@@ -208,6 +221,7 @@ System.out.println(numbers);
 - F. The code does not compile.
 
 ### A12.
+A. First, we delete the characters at index 2 until the character one before index 8. At this point, 0189 is in `numbers`. The following lines uses method chaining. It appends a dash to the end of the characters sequence, resulting in 0189-, and then inserts a plus sign at index 2, resulting in 01+89-.
 
 ### Q13. What is the result of the following code?
 ```java
@@ -223,6 +237,7 @@ System.out.println(b);
 - F. The code does not compile.
 
 ### A13.
+F. This is a trick question. The first line does not compile because you cannot assign a `String` to a `StringBuilder`. If that line were `StringBuilder b = new StringBuilder("rumble");`, the code would compile and print `rum4`. Whatch out for this sort of trick on the exam. You could easily spend a minute working out the character positions for no reason at all.
 
 ### Q14. Which of the following can replace line 4 to print `"avaJ"`? (Choose all that apply)
 ```java
@@ -237,6 +252,7 @@ System.out.println(b);
 - E. None of the above.
 
 ### A14.
+A, C. The `reverse()` method is the easiest way of reversing the characters in a `StringBuilder`; therefore, option A is correct. Option B does not reverse the string. However, `substring()` returns a `String`, which is not stored anywhere. Option C uses method chaining. First it creates the value `"JavavaJ$"`. Then it removes the first three characters, resulting in `"avaJ$"`. Finally, it removes the last character, resulting in "avaJ". Option D throws an exception because you cannot delete the character after the last index. Remember that `deleteCharAt()` uses indexes that are zero based and `length()` counts starting with 0.
 
 ### Q15. Which of these array declarations is not legal? (Choose all that apply)
 - A. `int[][] scores = new int[5][];`

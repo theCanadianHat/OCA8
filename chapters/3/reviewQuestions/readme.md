@@ -263,6 +263,7 @@ A, C. The `reverse()` method is the easiest way of reversing the characters in a
 - F. `int[][] java = new int[][];`
 
 ### A15.
+C, E, F. Option C uses the variable name as if it were a type, which is clearly illegal. Options E and F don't specify any size. Although it is legal to leave out the size for later dimensions of a multidemensional array, the first one is required. Option A declares a legal 2D array. Option B declares a legal 3D array. Option D declares a legal 2D array. Remember that it is normal to see on the exam types you might not have learned. You aren't expected to know anything about them.
 
 ### Q16. Which of these compile when replaceing 8? (Choose all that apply)
 ```java
@@ -278,6 +279,7 @@ A, C. The `reverse()` method is the easiest way of reversing the characters in a
 - G. None of the above.
 
 ### A16.
+C. Arrays define a property called `length`. It is not a method, so parentheses are not allowed.
 
 ### Q17. Which of these compile when replaceing 8? (Choose all that apply)
 ```java
@@ -293,6 +295,7 @@ A, C. The `reverse()` method is the easiest way of reversing the characters in a
 - G. None of the above.
 
 ### A17.
+F. The `ArrayList` class defines a method called `size()`.
 
 ### Q18. Which of the following are true? (Choose all that apply)
 - A. An array has a fixed size.
@@ -304,6 +307,7 @@ A, C. The `reverse()` method is the easiest way of reversing the characters in a
 - G. An `ArrayList` is immutable
 
 ### A18.
+A, C, D, E. An array is not able to change size and can have multiple dimensions. Both an array and `ArrayList` are ordered and have indexes. Neither is immutable. The elements can change value.
 
 ### Q19. Which of the following are true? (Choose all that apply)
 - A. Two arrays with the same content are equal.
@@ -313,6 +317,7 @@ A, C. The `reverse()` method is the easiest way of reversing the characters in a
 - E. None of the above.
 
 ### A19.
+B, C. An array does not override `equals()` and so uses object equality. `ArrayList` does override `equals()` and defines it as the same elements in the same order. The compiler does not know when an index is out of bounds and thus can't give you a compiler error. The code will throw and exception at runtime, though.
 
 ### Q20. What is the result of the following statements?
 ```java
@@ -329,6 +334,7 @@ A, C. The `reverse()` method is the easiest way of reversing the characters in a
 - E. Compiler error on line 10.
 
 ### A20.
+D. The code does not compile because `list` is instantiated using generics. Only `String` objects can be added to `list` and 7 is an `int`.
 
 ### Q21. What is the result of the following statements?
 ```java
@@ -348,6 +354,7 @@ A, C. The `reverse()` method is the easiest way of reversing the characters in a
 - G. The code does not compile.
 
 ### A21.
+C. After line 4, `values` has one element (4). After line 5, `values` has two elements (4, 5). After line 6, `values` has two elements (4, 6) becasue `set()` does a replace. After line 7, `values` has only one element (6).
 
 ### Q22. What is the result of the following?
 ```java
@@ -364,6 +371,7 @@ System.out.println(y);
 - F. The code does not compile.
 
 ### A22.
+D. The code compiles and runs fine. However, an array must be sorted for `binarySearch()` to return a meaningful result.
 
 ### Q23. What is the result of the following?
 ```java
@@ -380,6 +388,7 @@ System.out.println(y);
 - F. An exception is thrown.
 
 ### A23.
+A. Line 4 creates a fixed size array of size 4. Line 5 sorts it. Line 6 converts it back to an array. The brackets aren't in the traditional place, but they are still legal. Line 7 prints the first element, which is now -1.
 
 ### Q24. What is the result of the following?
 ```java
@@ -395,6 +404,7 @@ System.out.println(y);
 - E. An exception is thrown.
 
 ### A24.
+C. Converting from an array to an `ArrayList` uses `Arrays.asList(names)`. There is no `asList()` method on an array instance. If this code were corrected to compile, the answer would be option A.
 
 ### Q25. What is the result of the following?
 ```java
@@ -413,6 +423,7 @@ System.out.println(x + " " + y + " " + z);
 - F. The code doesn't compile.
 
 ### A25.
+D. After sorting, `hex` conatins `[30, 3A, 8, FF]`. Remember that numbers sort before letters and strings sort alphabetically. This makes 30 come before 8. A binary search correctly finds 8 at index 2 and 3A at index 1. It cannot find 4F but notices it should be at index 2. The rule when in item isn't found is to negate that index and subtract 1. Therefore we get -2-1, which is -3.
 
 ### Q26. Which of the following are true statements about the following code? (Choose all that apply)
 ```java
@@ -430,6 +441,7 @@ System.out.println(x + " " + y + " " + z);
 - E. Exactly thress of the add statements use autoboxing.
 
 ### A26.
+A, B, D. Lines 5 and 7 use autoboxing to convert an `int` to an `Integer`. Line 6 does not because `valueOf()` returns an `Integer`. Line 8 does not because `null` is not an `int`. The code does compile. However, when the for loop tries to unbox `null` into an `int`, it fails and throws a `NullPointerException`.
 
 ### Q27. What is the result of the following?
 ```java
@@ -451,6 +463,7 @@ else
 - E. The code does not compile.
 
 ### A27.
+B. The first `if` statement is `false` becasue the variables do not point to the same object. The second `if` statement is `true` becasue `ArrayList` implements equality to mean the same elements in the same order.
 
 ### Q28. Which of the following can be inserted into the blank to create a date of June 21, 2014? (Choose all that apply)
 ```java
@@ -472,6 +485,7 @@ public class StartOfSummer {
 - F. `LocalDate.of(2014, Month.JUNE, 21);`
 
 ### A28.
+D, F. Options A and B are incorrect because `LocalDate` does not have a public constructor. Option C is incorrect because months start counting with 1 rather than 0. Option E is incorrect because it uses the old pre-Java 8 way of counting months, again beginning at 0. Options D and F are both correct ways of specifying the desired date.
 
 ### Q29. What is the output of the following code?
 ```java
@@ -488,6 +502,7 @@ System.out.println(date.getYear() + " " + date.getMonth() + " " + date.getDayOfM
 - F. A runtime exception is thrown.
 
 ### A29.
+D. A `LocalDate` does not have a time element. Therefore, it has no method to add hours and the code does not compile.
 
 ### Q30. What is the output of the following code?
 ```java
@@ -502,6 +517,7 @@ System.out.println(date.getYear() + " " + date.getMonth() + " " + date.getDayOfM
 - F. A runtime exception is thrown.
 
 ### A30.
+F. Java throws an exception if invalid date values are passed. There is not 40th day in April -- or any other month for that matter.
 
 ### Q31. What is the output of the following code?
 ```java
@@ -519,6 +535,7 @@ System.out.println(date.getYear() + " " + date.getMonth() + " " + date.getDayOfM
 - G. A runtime exception is thrown.
 
 ### A31.
+B. The date starts out as April 30, 2018. Since dates are immutable and the plus methods have their return values ignored, the result is unchanged. Therefore, option B is correct.
 
 ### Q32. What is the output of the following code?
 ```java
@@ -537,6 +554,7 @@ System.out.println(d.format(f));
 - G. A runtime exception is thrown.
 
 ### A32.
+E. Even though `d` have both date and time, the formmatter only outputs time.
 
 ### Q33. What is the output of the following code?
 ```java
@@ -555,3 +573,4 @@ System.out.println(d.format(f));
 - G. A runtime exception is thrown.
 
 ### A33.
+B. `Period` does not allow chaining. Only the last `Period` method called counts, so only the two years are subtracted.

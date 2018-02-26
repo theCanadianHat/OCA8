@@ -91,6 +91,10 @@ public class MethodSyntax{
 	public void $alsoValid() {}
 	public void st1ll_Valid$() {}
 	public void NotRecommendedButValid() {}
+	
+	//invalid method names
+	//public void 1234()
+	//public int void()
 
 	/*
 		Parameter List:
@@ -100,7 +104,7 @@ public class MethodSyntax{
 	*/
 	void doSomething8() {}
 	void doSomething9(int x) {}
-	void doSomething10( int x, int y, Strin name) {}
+	void doSomething10( int x, int y, String name) {}
 	void doSomething11( String name, int... ages) {}
 
 	/*
@@ -123,5 +127,20 @@ public class MethodSyntax{
 
 	public static void main(String[]  args){
 		MethodSyntax ms = new MethodSyntax();
+
+		/*
+			Since this code is written in the same class as these methods,
+			they can all be called from here. Including the private method.
+		*/
+		ms.doSomething0(0);
+		ms.doSomething1(0);
+		ms.doSomething2(0);
+		ms.doSomething3(0);
+
+		/*
+			Static methods don't need a class instance to be called.
+		*/
+		MethodSyntax.doSomethingStatic1();
+		MethodSyntax.doSomethingStatic2();
 	}
 }

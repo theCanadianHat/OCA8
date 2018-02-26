@@ -142,5 +142,12 @@ public class MethodSyntax{
 		*/
 		MethodSyntax.doSomethingStatic1();
 		MethodSyntax.doSomethingStatic2();
+
+		/*
+			These methods return things, and they get printed out.
+		*/
+		System.out.println(ms.doSomething4());
+		System.out.println(ms.doSomething5());
+		System.out.println(ms.doSomething6());
 	}
 }

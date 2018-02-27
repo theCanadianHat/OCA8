@@ -1,4 +1,4 @@
-package njh.example.methods.accessModifiers;
+package njh.c4.methods.accessModifiers;
 
 /*
 	Since we are no longer in BoringPrivateClass we can not access is
@@ -15,7 +15,7 @@ package njh.example.methods.accessModifiers;
 	2 errors
 */
 
-public class BrokenPrivateClass{
+public class UsingBoringPrivateClass {
 	
 	public static void main(String[] args){
 		BoringPrivateClass pc = new BoringPrivateClass("Private", 13);

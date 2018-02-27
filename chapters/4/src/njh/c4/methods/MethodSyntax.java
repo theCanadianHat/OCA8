@@ -1,4 +1,4 @@
-package njh.example.methods;
+package njh.c4.methods;
 
 public class MethodSyntax{
 	

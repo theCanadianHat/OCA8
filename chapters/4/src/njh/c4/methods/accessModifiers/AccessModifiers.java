@@ -1,4 +1,4 @@
-package njh.example.methods.accessModifiers;
+package njh.c4.methods.accessModifiers;
 
 /*
 	This class will be used by others to show how Java's
@@ -11,7 +11,7 @@ public class AccessModifiers {
 	protected int c;
 	private int d;
 
-	AccessModifiers(int a, int b, int c, int d){
+	public AccessModifiers(int a, int b, int c, int d){
 		this.a = a;
 		this.b = b;
 		this.c = c;

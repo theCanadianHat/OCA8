@@ -1,4 +1,4 @@
-package njh.example.encapsulation;
+package njh.c4.encapsulation;
 
 public class EncapsulatedClass{
 	

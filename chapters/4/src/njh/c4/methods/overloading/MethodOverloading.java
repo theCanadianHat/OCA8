@@ -1,4 +1,4 @@
-package njh.example.methods.overloading;
+package njh.c4.methods.overloading;
 
 public class MethodOverloading{
 	

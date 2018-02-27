@@ -1,4 +1,4 @@
-package njh.example.methods.accessModifiers;
+package njh.c4.methods.accessModifiers;
 
 /*
 	This class is boring but is here to make a point.
@@ -7,18 +7,18 @@ package njh.example.methods.accessModifiers;
 	defined in this class.
 */
 
-public class PrivateClass{
+public class BoringPrivateClass{
 	private String name;
 	private int age;
 
-	PrivateClass(String name, int age){
+	BoringPrivateClass(String name, int age){
 		this.name = name;
 		this.age = age;
 	}
 
 	public static void main(String[] args){
-		PrivateClass pc = new PrivateClass("Private", 13);
-		//This is legal because we are still in PrivateClass
+		BoringPrivateClass pc = new BoringPrivateClass("Private", 13);
+		//This is legal because we are still in BoringPrivateClass
 		System.out.println(pc.name);
 		System.out.println(pc.age);
 	}

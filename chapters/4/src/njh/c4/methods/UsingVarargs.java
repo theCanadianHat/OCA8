@@ -3,10 +3,6 @@ package njh.c4.methods;
 import java.util.Arrays;
 
 public class UsingVarargs{
-	
-	/*
-		
-	*/
 
 	private String arrayToString(int[] x){
 		return Arrays.toString(x);

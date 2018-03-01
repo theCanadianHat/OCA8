@@ -15,6 +15,10 @@ public class PassingParametersToMethods {
 		int w = willIChange3(i);
 		System.out.println(w); //944
 
+		String x = "Change me";
+		willIChange4(x);
+		System.out.println(x);//Change me
+
 		MyClass mc = new MyClass();
 		mc.name = "Billy";
 		mc.number = 5;
@@ -46,5 +50,9 @@ public class PassingParametersToMethods {
 
 	public static int willIChange3(int w){
 		return 944;
+	}
+
+	public static void willIChange4(String x){
+		x = "We did it!";
 	}
 }

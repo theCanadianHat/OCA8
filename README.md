@@ -9,4 +9,4 @@ I am going to study at least a single hour everyday. When a chapter is complete 
 I am behind.
 So I have been doing good I think; better than I thought I'd do this time. I have been studying consistently 4-5 hours a week. This is obviously not the "single hour everyday", but not too bad. I read chapter 4, and I started working on source code to really set-in-stone the concepts I learned. Normally I work on the review questions after reading the chapter. Writing code took time, but was fun.
 
-I plan to go back through chapters 1-3 and work on source prior to moving onto the review questions for chapter 4. (The copying is killing me).
+I plan to go back through chapters 1-3 and work on source prior to moving onto the review questions for chapter 4. (The copying is killing me). I feel I won't go back if I continue forward to the review questions. I am currently done with the code for chapter 4. I don't think the code for the first 3 chapters will take long.

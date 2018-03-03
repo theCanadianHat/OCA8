@@ -16,13 +16,24 @@ public class MethodOverloadingAndAutoboxing {
 			main with the Integer variable will have their int value taken as
 			the parameter value.
 		*/
-		public static void tryMe(int x){
-			out.println("public static void tryMe(int x)");
-			out.println("x = " + x);
-		}
+		// public static void tryMe(int x){
+		// 	out.println("public static void tryMe(int x)");
+		// 	out.println("x = " + x);
+		// }
 	
-		public static void tryMe(Integer x){
-			out.println("public static void tryMe(Integer x)");
+		// public static void tryMe(Integer x){
+		// 	out.println("public static void tryMe(Integer x)");
+		// 	out.println("x = " + x);
+		// }
+
+		/*
+			If you comment out the other two methods the method calls
+			in main will not compile. Java will only autobox once. It
+			will convert an int to an Integer but not an Integer to a 
+			Long.
+		*/
+		public static void tryMe(Long x) {
+			out.println("public static void tryMe(Long x)");
 			out.println("x = " + x);
 		}
 
@@ -31,7 +42,7 @@ public class MethodOverloadingAndAutoboxing {
 		Integer b = 5;
 
 		tryMe(a);
-
+		tryMe(9L);
 		tryMe(b);
 	}
 }

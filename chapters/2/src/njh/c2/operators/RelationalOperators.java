@@ -2,11 +2,11 @@ package njh.c2.operators;
 
 /*
 	Binary Operator.
-	Compare two expressiona and return
+	Compare two expressions and return
 	a boolean value
 */
 
-public class ConditionalOperators {
+public class RelationalOperators {
 	public static void main(String[] args) {
 		boolean a = 1 > 2;
 		System.out.println(a);

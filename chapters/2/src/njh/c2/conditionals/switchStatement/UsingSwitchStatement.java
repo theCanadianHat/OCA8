@@ -37,10 +37,23 @@ public class UsingSwitchStatement {
 		switch(numOfCars){
 			case 4: //since numOfCars is 4 this block will be executed.
 				System.out.println("4 cars");
-				break;
+				break;//breaks tells program flow to exit switch
 			default:
 				System.out.println("Default number of cars");
 				break;
+		}
+
+		switch(numOfCars){
+			case 4: //since numOfCars is 4 this block will be executed.
+				System.out.println("4 cars, no breaks");
+			default:
+				System.out.println("Default number of cars");
+				break;
+		}
+
+		switch(numOfCars){
+			case 4: //since numOfCars is 4 this block will be executed.
+				System.out.println("4 cars, no breaks, no default");
 		}
 
 		aBOrC('a');

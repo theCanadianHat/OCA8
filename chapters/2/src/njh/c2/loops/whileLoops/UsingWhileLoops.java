@@ -29,7 +29,7 @@ public class UsingWhileLoops {
 			//when count is 5 (println should be called 5 times)
 			if(count++ == 5){//tricky post increment here -> count is 6 after if check
 				//set keepGoing to false
-				keepGoing = false; //comment out after you google how to kill infinite loop java
+				keepGoing = false; //comment out after you google "how to kill infinite loop java"
 			}
 		}
 

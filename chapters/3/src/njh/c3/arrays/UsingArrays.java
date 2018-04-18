@@ -1,11 +1,14 @@
 package njh.c3.arrays;
 
+import java.util.Arrays;
 /*
 	Arrays are a powerful tool
 	They are fixed in length
 	Fast at indexing
+	Java considers arrays as a reference data type (nullable)
 
-
+	An array is a collection of references to objects, the objects
+	are not stored in the array.
 */
 
 public class UsingArrays {
@@ -42,7 +45,6 @@ public class UsingArrays {
 		/*
 			Specify the elements of the array. The size
 			can be deduced from the list of elements.
-
 		*/
 		String[] specific = {"1", "2", "3"};
 		//using array's property length to figure out how far to go
@@ -55,7 +57,32 @@ public class UsingArrays {
 			3
 		*/
 
+		/*
+			Arrays hold references, and arrays are reference objects.
+			So you can have an array of arrays.
+			Count the braces, thats the number of dimensions the array has.
+		*/
+		int[] _2dArray1[] = new int[3][3];
+		int _2dArray2[][] = new int[3][3];
+		int[][] _2dArray3 = new int[3][3];
 
+		/*
+			Like one dimensional arrays you can specify the elements of the
+			array. Also not all arrays must be the same length.
+		*/
+		int[][] specific2dArray = {{1, 2, 3},{4, 5},{6}};
+
+		/*
+			The most common way of iterating through a multidimensional
+			array is nest for loops.
+		*/
+		for (int i = 0; i < specific2dArray.length; i++) {//going through the outter most array (the array of arrays)
+			
+			for (int j = 0; j < specific2dArray[i].length; j++) {
+					System.out.println("element at specific2dArray[" + i + "][" + j + "] is " + specific2dArray[i][j]);
+			}
+
+		}
 	}
 
 }

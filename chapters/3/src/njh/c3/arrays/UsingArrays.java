@@ -76,7 +76,7 @@ public class UsingArrays {
 			The most common way of iterating through a multidimensional
 			array is nest for loops.
 		*/
-		for (int i = 0; i < specific2dArray.length; i++) {//going through the outter most array (the array of arrays)
+		for (int i = 0; i < specific2dArray.length; i++) {//going through the outer most array (the array of arrays)
 			
 			for (int j = 0; j < specific2dArray[i].length; j++) {
 					System.out.println("element at specific2dArray[" + i + "][" + j + "] is " + specific2dArray[i][j]);

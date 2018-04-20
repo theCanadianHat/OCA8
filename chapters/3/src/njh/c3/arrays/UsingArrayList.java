@@ -71,6 +71,54 @@ public class UsingArrayList{
 		System.out.println(element);				//1
 		System.out.println(list0);					//[true]
 
-		
+		/*
+			public E set(int index, E newElement)
+			Sets the element to newElement at the position given by index
+		*/
+		System.out.println(listOfStrings0); //[Hello]
+		listOfStrings0.set(0, "Good Bye");	//[Good Bye]
+
+		/*
+			public boolean isEmpty()
+			Returns if the list is empty or not
+		*/
+		System.out.println(listOfStrings0.isEmpty()); //false
+		System.out.println(list1.isEmpty()); 					//true
+
+		/*
+			public int size()
+			Returns the number of elements in a list
+		*/
+		System.out.println(listOfStrings0.size());	//1
+		System.out.println(list1.size()); 					//0
+
+		/*
+			public void clear()
+			Throws away all elements in the list.
+		*/
+		System.out.println(listOfStrings0); 					//[Good Bye]
+		listOfStrings0.clear();
+		System.out.println(listOfStrings0);						//[]
+		System.out.println(listOfStrings0.size());		//0
+		System.out.println(listOfStrings0.isEmpty());	//true
+
+		/*
+			public boolean contains(Object o)
+			Checks list of Object o. Returns true if found, false
+			otherwise.
+		*/
+		System.out.println(listOfStrings0.contains("Hello"));		//false
+		listOfStrings0.add("Hello");
+		System.out.println(listOfStrings0.contains("Hello"));//true
+
+		/*
+			public boolean equals(Object o)
+			Checks two lists for equal elements and order.
+		*/
+		List<String> newList = new ArrayList();
+		System.out.println(listOfStrings0.equals(newList)); //false
+		newList.add("Hello");
+		System.out.println(listOfStrings0.equals(newList)); //true
+
 	}
 }

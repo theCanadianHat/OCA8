@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.LocalDateTime;
 import java.time.Month;
+import java.time.Period;
 
 /*
 	Using Date and Times the Java 8 way!
@@ -94,5 +95,25 @@ public class UsingDatesAndTimes{
 		LocalDateTime noonOnMyBirthday = LocalDateTime.of(myBirthday, noon);
 		System.out.println("Go back in time 2 weeks, 4 years, 7 hours, and 11 nanoseconds from noon on your birthday. (" + noonOnMyBirthday + ")");
 		System.out.println("Got it! " + noonOnMyBirthday.minusWeeks(2).minusYears(4).minusHours(7).minusNanos(11));
+
+		/*
+			The classes we have looked at hold a specific date or time, or both.
+			We learned that these classes also have methods that allow you to 
+			alter the information held in them.
+			Java has a class to help with manipulation; this call is called Period.
+			Period holds a period of time defined in years, months, and days. 
+			Period only works with dates.
+			Use Duration for time objects.
+			You can't chain methods off Period; you get the last call made since
+			the methods are static.
+		*/
+		Period oneDay = Period.ofDays(1);
+		System.out.println(oneDay);
+		System.out.println("The day after my birthday: " + myBirthday.plus(oneDay));
+		System.out.println("The day before my birthday: " + myBirthday.minus(oneDay));
+		Period tricky = Period.ofYears(9).ofMonths(8).ofWeeks(7).ofDays(6);	//6 days
+		System.out.println(tricky);
+		Period oneYear3Months4Days = Period.of(1, 3, 4);
+		System.out.println(oneYear3Months4Days);
 	}
 }

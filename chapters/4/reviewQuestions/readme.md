@@ -165,151 +165,254 @@ public int howMany(boolean b, boolean... b2){
 ### A10.
 
 
-### Q11. What is the result of the following code?
+### Q11. Which are true of the following code? (Choose all that apply)
 ```java
-4:  int total = 0;
-5:  StringBuilder letters = new StringBuilder("abcdefg");
-6:  total += letters.substring(1, 2).length();
-7:  total += letters.substring(6, 6).length();
-8:  total += letters.substring(6, 5).length();
-9:  System.out.println(total);
+1:  public class Rope {
+2:  	public static void swing() {
+3:  		System.out.print("swing ")
+4:  	}
+5:  	public void climb() {
+6:  		System.out.println("climb ")
+7:  	}
+8:		public static void play() {
+9:			swing();
+10:			climb();
+11:		}
+12:		public static void main(String[] args){
+13:			Rope rope = new Rope();
+14:			rope.play();
+15:			Rope rope2 = null;
+16:			rope2.play();
+17:		}
+18:	}
 ```
-- A. 1
-- B. 2
-- C. 3
-- D. 7
-- E. An exception is thrown.
-- F. The code does not compile.
+- A. The code compiles as is.
+- B. There is exactly one compiler error in the code.
+- C. There are exactly two compiler errors in the code.
+- D. If the lines with compiler errors are removed, the output is `climb climb `.
+- E. If the lines with compiler errors are removed, the output is `climb climb `.
+- F. If the lines with compiler errors are removed, the code throws a `NullPointerException`.
 
 ### A11.
-E. Line 6 adds 1 to `total` because `substring()` includes the starting index but not the ending index. Line 7 adds 0 to `total`. Line 8 is a problem: Java does not allow the indexes to be specified in reverse order and the code throws a `StringIndexOutOfBoundsException`.
 
-### Q12. What is the result of the following code? (Choose all that apply)
+
+### Q12. What is the output of the following code?
 ```java
-StringBuilder numbers = new StringBuilder("0123456789");
-numbers.delete(2, 8);
-numbers.append("-").insert(2, "+");
-System.out.println(numbers);
+import rope.*;
+import static rope.Rope.*;
+public class RopeSwing {
+	private static Rope rope1 = new Rope();
+	private static Rope rope2= new Rope();
+	{
+		System.out.println(rope1.length);
+	}
+	public static void main(String[] args) {
+		rope1.length = 2;
+		rope2.length = 8;
+		System.out.println(rope1.length);
+	}
+}
+
+package rope;
+public class Rope {
+	public static int length = 0;
+}
 ```
-- A. 01+89-
-- B. 012+9-
-- C. 012+-9
-- D. 0123456789
-- E. An exception is thrown.
-- F. The code does not compile.
+- A. 02
+- B. 08
+- C. 2
+- D. 8
+- E. The code does not compile.
+- F. An exception is thrown.
 
 ### A12.
-A. First, we delete the characters at index 2 until the character one before index 8. At this point, 0189 is in `numbers`. The following lines uses method chaining. It appends a dash to the end of the characters sequence, resulting in 0189-, and then inserts a plus sign at index 2, resulting in 01+89-.
 
-### Q13. What is the result of the following code?
+
+### Q13. How many compiler errors are in the following code?
 ```java
-StringBuilder b = "rumble";
-b.append("-").deleteCharAt(3).delete(3, b.length() - 1);
-System.out.println(b);
+1:	public class RopeSwing {
+2:		private static final String leftRope;	
+3:		private static final String rightRope;	
+4:		private static final String bench;	
+5:		private static final String name = "name";	
+6:		static {
+7:			leftRope = "left";
+8:			rightRope = "right";
+9:		}
+10:		static {
+11:			name = "name";
+12:			rightRope = "right"
+13:		}
+14:		public static void main(String[] args) {
+15:			bench = "bench";
+16:		}
+17:	}
 ```
-- A. rum
-- B. rum4
-- C. rumb4
-- D. rumble4
-- E. An exception is thrown.
-- F. The code does not compile.
+- A. 0
+- B. 1
+- C. 2
+- D. 3
+- E. 4
+- F. 5
 
 ### A13.
-F. This is a trick question. The first line does not compile because you cannot assign a `String` to a `StringBuilder`. If that line were `StringBuilder b = new StringBuilder("rumble");`, the code would compile and print `rum4`. Whatch out for this sort of trick on the exam. You could easily spend a minute working out the character positions for no reason at all.
 
-### Q14. Which of the following can replace line 4 to print `"avaJ"`? (Choose all that apply)
+
+### Q14. Which of the following can replace line 2 to make the code compile? (Choose all that apply)
 ```java
-3:  StringBuilder puzzle = new StringBuilder("Java");
-4:  //INSERT CODE HERE
-5:  System.out.println(puzzle);
+1:	import java.util.*;
+2:	// INSERT CODE HERE
+3:	public class Imports {
+4:		public void method(ArrayList<String> list){
+5:			sort(list);
+6:		}	
+7:	}
 ```
-- A. `puzzle.reverse();`
-- B. `puzzle.append("vaJ$").substring(0, 4);`
-- C. `puzzle.append("vaJ$").delete(0, 3).deleteCharAt(pzuzzle.length() -1);`
-- D. `puzzle.append("vaJ$").delete(0, 3).deleteCharAt(pzuzzle.length());`
-- E. None of the above.
+- A. import static java.util.Collections;
+- B. import static java.util.Collections.*;
+- C. import static java.util.Collections.sort(ArrayList<String>);
+- D. static import java.util.Collections;
+- E. static import java.util.Collections.*;
+- F. static import java.util.Collections.sort(ArrayList<String>);
 
 ### A14.
-A, C. The `reverse()` method is the easiest way of reversing the characters in a `StringBuilder`; therefore, option A is correct. Option B does not reverse the string. However, `substring()` returns a `String`, which is not stored anywhere. Option C uses method chaining. First it creates the value `"JavavaJ$"`. Then it removes the first three characters, resulting in `"avaJ$"`. Finally, it removes the last character, resulting in "avaJ". Option D throws an exception because you cannot delete the character after the last index. Remember that `deleteCharAt()` uses indexes that are zero based and `length()` counts starting with 0.
 
-### Q15. Which of these array declarations is not legal? (Choose all that apply)
-- A. `int[][] scores = new int[5][];`
-- B. `Object[][][] cubbies = new Object[3][0][5];`
-- C. `String beans[] = new beans[6];`
-- D. `java.util.Date[] dates[] = new java.util.Date[2][];`
-- E. `int[][] types = new int[];`
-- F. `int[][] java = new int[][];`
+
+### Q15. What is the result of the following statements?
+```java
+1:	public class Test {
+2:		public void print(byte x) {
+3:			System.out.print("byte");	
+4:		}
+5:		public void print(int x) {
+6:			System.out.print("int");
+7:		}
+8:		public void print(float x) {
+9:			System.out.print("float");
+10:		}
+11:		public void print(Object x) {
+12:			System.out.print("Object");
+13:		}
+14:		public static void main(String[] args) {
+15:			Test t = new Test();
+16:			short s = 123;
+17:			t.print(s);
+18:			t.print(true);
+19:			t.print(6.789);
+20:		}
+21:	}
+```
+- A. bytefloatObject
+- B. intfloatObject
+- C. byteObjectfloat
+- D. intObjectfloat
+- E. intObjectObject
+- F. byteObjectObject
 
 ### A15.
-C, E, F. Option C uses the variable name as if it were a type, which is clearly illegal. Options E and F don't specify any size. Although it is legal to leave out the size for later dimensions of a multidemensional array, the first one is required. Option A declares a legal 2D array. Option B declares a legal 3D array. Option D declares a legal 2D array. Remember that it is normal to see on the exam types you might not have learned. You aren't expected to know anything about them.
 
-### Q16. Which of these compile when replaceing 8? (Choose all that apply)
+
+### Q16. What is the result of the following program?
 ```java
-7:  char[]c = new char[2];
-8:  //INSERT CODE HERE
+1:	public class Squares {
+2:		public static long square(int x) {
+3:			long y = x * (long) x;
+4:			x = -1;
+5:			return y;
+6:		}
+7:		public static void main(String[] args) {
+8:			int value = 9;
+9:			long result = square(value);
+10:			System.out.println(value);
+11:	} }
 ```
-- A. `int length = c.capacity;`
-- B. `int length = c.capacity();`
-- C. `int length = c.length;`
-- D. `int length = c.length();`
-- E. `int length = c.size;`
-- F. `int length = c.size();`
-- G. None of the above.
+- A. -1
+- B. 9
+- C. 81
+- D. Compiler error on line 9.
+- E. Compiler error on a different line.
 
 ### A16.
-C. Arrays define a property called `length`. It is not a method, so parentheses are not allowed.
 
-### Q17. Which of these compile when replaceing 8? (Choose all that apply)
+
+### Q17. Which of the following are output by the following code? (Choose all that apply)
 ```java
-7:  ArrayList l  = new ArrayList();
-8:  //INSERT CODE HERE
+public class StringBuilders {
+	public static StringBuilder work(StringBuilder a, StringBuilder b) {
+		a = new StringBuilder("a");
+		b.append("b");
+		return a;
+	}
+	public static void main(String[] args) {
+		StringBuilder s1 = new StringBuilder("s1");
+		StringBuilder s2 = new StringBuilder("s2");
+		StringBuilder s3 = work(s1, s2)
+		System.out.println("s1 = " + s1);
+		System.out.println("s2 = " + s2);
+		System.out.println("s3 = " + s3);
+	}
+}
 ```
-- A. `int length = l.capacity;`
-- B. `int length = l.capacity();`
-- C. `int length = l.length;`
-- D. `int length = l.length();`
-- E. `int length = l.size;`
-- F. `int length = l.size();`
-- G. None of the above.
+- A. s1 = a
+- B. s1 = s1
+- C. s2 = s2
+- D. s2 = s2b
+- E. s3 = a
+- F. s3 = null
+- G. The code does not compile.
 
 ### A17.
-F. The `ArrayList` class defines a method called `size()`.
 
-### Q18. Which of the following are true? (Choose all that apply)
-- A. An array has a fixed size.
-- B. An `ArrayList` has a fixed size.
-- C. An array allows multiple demensions.
-- D. An array is ordered.
-- E. An `ArrayList` is ordered.
-- F. An array is immutable
-- G. An `ArrayList` is immutable
+
+### Q18. Which of the following are true? (Choose 2)
+- A. `this()` can be called from anywhere is a constructor.
+- B. `this()` can be called from any instance method in a class.
+- C. `this.variableName` can be called from any instance method in the class.
+- D. `this.variableName` can be called from any static method in the class.
+- E. You must include a default constructor in the code if the compiler does not include one.
+- F. You can call the default constructor written by the compiler using `this()`.
+- G. You can access a private constructor with the `main()` method.
 
 ### A18.
-A, C, D, E. An array is not able to change size and can have multiple dimensions. Both an array and `ArrayList` are ordered and have indexes. Neither is immutable. The elements can change value.
 
-### Q19. Which of the following are true? (Choose all that apply)
-- A. Two arrays with the same content are equal.
-- B. Two `ArrayList`s with the same content are equal.
-- C. If you call `remove(0)` using an empty `ArrayList` object, it will compile successfully.
-- D. If you call `remove(0)` using an empty `ArrayList` object, it will run successfully.
-- E. None of the above.
+
+### Q19. Which of these class compile and use a default constructor? (Choos all that apply)
+- A. `public class Bird { }`
+- B. `public class Bird { public bird() {} }`
+- C. `public class Bird { public bird(String name) {} }`
+- D. `public class Bird { public Bird() {} }`
+- E. `public class Bird { public Bird(String name) {} }`
+- F. `public class Bird { private Bird(int age) {} }`
+- G. `public class Bird { void Bird() { } }`
 
 ### A19.
-B, C. An array does not override `equals()` and so uses object equality. `ArrayList` does override `equals()` and defines it as the same elements in the same order. The compiler does not know when an index is out of bounds and thus can't give you a compiler error. The code will throw and exception at runtime, though.
 
-### Q20. What is the result of the following statements?
+
+### Q20. What code can be inserted to have the code print 2?
 ```java
-6:  List<String> list = new ArrayList<String>();
-7:  list.add("one");
-8:  list.add("two");
-9:  list.add(7);
-10: for(String s: list) System.out.print(s);
+public class BirdSeed {
+	private int numberBags;
+	boolean call;
+
+	public BirdSeed() {
+		//LINE 1
+		call = false;
+		//LINE 2
+	}
+	public BirdSeed(int numberBags) {
+		this.numberBags = numberBags;
+	}
+	public static void main(String[] args){
+		BirdSeed seed = new BirdSeed();
+		System.out.println(seed.numberBags)
+	} }
 ```
-- A. onetwo
-- B. onetwo7
-- C. onetwo followed by an exception
-- D. Compiler error on line 9.
-- E. Compiler error on line 10.
+- A. Replace line 1 with `BirdSeed(2);`
+- B. Replace line 2 with `BirdSeed(2);`
+- C. Replace line 1 with `new BirdSeed(2);`
+- D. Replace line 2 with `new BirdSeed(2);`
+- E. Replace line 1 with `this(2);`
+- F. Replace line 2 with `this(2);`
 
 ### A20.
 D. The code does not compile because `list` is instantiated using generics. Only `String` objects can be added to `list` and 7 is an `int`.

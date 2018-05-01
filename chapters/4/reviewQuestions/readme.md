@@ -415,243 +415,237 @@ public class BirdSeed {
 - F. Replace line 2 with `this(2);`
 
 ### A20.
-D. The code does not compile because `list` is instantiated using generics. Only `String` objects can be added to `list` and 7 is an `int`.
 
-### Q21. What is the result of the following statements?
+
+### Q21. Which of the following complete the constructor so that this code prints out `50`? (Choose all that apply)
 ```java
-3:  ArrayList<Integer> values = new ArrayList<String>();
-4:  values.add(4);
-5:  values.add(5);
-6:  values.set(1, 6);
-7:  values.remove(0);
-8:  for (Integer v: values) System.out.print(v);
+public class Cheetah {
+	int numSpots;
+	public Cheetah(int numSpots) {
+		//INSERT CODE HERE
+	}
+	public static void main(String[] args){
+		System.out.println(new Cheetah(50).newSpots);
+	}
+}
 ```
-- A. 4
-- B. 5
-- C. 6
-- D. 46
-- E. 45
-- F. An exception is thrown.
-- G. The code does not compile.
+- A. `numSpots = numSpots;`
+- B. `numSpots = this.numSpots;`
+- C. `this.numSpots = numSpots;`
+- D. `numSpots = super.numSpots;`
+- E. `super.numSpots = numSpots;`
+- F. None of the above.
 
 ### A21.
-C. After line 4, `values` has one element (4). After line 5, `values` has two elements (4, 5). After line 6, `values` has two elements (4, 6) becasue `set()` does a replace. After line 7, `values` has only one element (6).
+
 
 ### Q22. What is the result of the following?
 ```java
-int[] random = { 6, -4, 12, 0 , -10};
-int x = 12;
-int y = Arrays.binarySearch(random, x);
-System.out.println(y);
+1:	public class Order {
+2:		static String result = "";
+3:		{ result += "c"; }
+4:		static
+5:		{ result += "u"; }
+6:		{ result += "r"; }
+7:	}
+
+1:	public class OrderDriver {
+2:		public static void main(String[] args) {
+3:			System.out.print(Order.result + " ");
+4:			System.out.print(Order.result + " ");
+5:			new Order();
+6:			new Order();
+7:			System.out.print(Order.result + " ");
+8:		}
+9:	}
 ```
-- A. 2
-- B. 4
-- C. 6
-- D. The result is undefined.
-- E. An exception is thrown.
-- F. The code does not compile.
+- A. `curur`
+- B. `ucrcr`
+- C. `u ucrcr`
+- D. `u u curcur`
+- E. `u u ucrcr`
+- F. `ur ur urc`
+- G. The code does not compile.
 
 ### A22.
-D. The code compiles and runs fine. However, an array must be sorted for `binarySearch()` to return a meaningful result.
+
 
 ### Q23. What is the result of the following?
 ```java
-4:  List<Integer> list = Arrays.asList(10, 4, -1, 5);
-5:  Collections.sort(list);
-6:  Integer array[] = list.toArray(new Integer[4]);
-7:  System.out.println(array[0]);
+1:	public class Order {
+2:		String value = "t";
+3:		{ value += "a"; }
+4:		{ value += "c"; }
+5:		public Order() {
+6:			value += "b";
+7:		}
+8:		public Order(String s) {
+9:			value += s;
+10:		}
+11:		public static void main(String[] args) {
+12:			Order order = new Order("f");
+13:			order = new Order();
+14:			System.out.println(order.value);
+15:		} }
 ```
-- A. -1
-- B. 10
-- C. Compiler error on line 4.
-- D. Compiler error on line 5.
-- E. Compiler error on line 6.
-- F. An exception is thrown.
+- A. `tacb`
+- B. `tacf`
+- C. `tacbf`
+- D. `tacfb`
+- E. `tacftacb`
+-	F. The code does not compile.
+- G. An exception is thrown.
 
 ### A23.
-A. Line 4 creates a fixed size array of size 4. Line 5 sorts it. Line 6 converts it back to an array. The brackets aren't in the traditional place, but they are still legal. Line 7 prints the first element, which is now -1.
 
-### Q24. What is the result of the following?
+
+### Q24. Which of the following will compile when inserted in the following code? (Choose all that apply)
 ```java
-6:  String [] names = {"Tom", "Dick", "Harry"};
-7:  List<String> list = names.asList();
-8:  list.set(0, "Sue");
-9:  System.out.println(names[0]);
-```
-- A. Sue
-- B. Tom
-- C. Compiler error on line 7.
-- D. Compiler error on line 8.
-- E. An exception is thrown.
-
-### A24.
-C. Converting from an array to an `ArrayList` uses `Arrays.asList(names)`. There is no `asList()` method on an array instance. If this code were corrected to compile, the answer would be option A.
-
-### Q25. What is the result of the following?
-```java
-List<String> hex = Arrays.asList("30", "8", "3A", "FF");
-Collections.sort(hex);
-int x = Collections.binarySearch(hex "8");
-int y = Collections.binarySearch(hex "3A");
-int z = Collections.binarySearch(hex "4F");
-System.out.println(x + " " + y + " " + z);
-```
-- A. 0 1 -2
-- B. 0 1 -3
-- C. 2 1 -2
-- D. 2 1 -3
-- E. None of the above.
-- F. The code doesn't compile.
-
-### A25.
-D. After sorting, `hex` conatins `[30, 3A, 8, FF]`. Remember that numbers sort before letters and strings sort alphabetically. This makes 30 come before 8. A binary search correctly finds 8 at index 2 and 3A at index 1. It cannot find 4F but notices it should be at index 2. The rule when in item isn't found is to negate that index and subtract 1. Therefore we get -2-1, which is -3.
-
-### Q26. Which of the following are true statements about the following code? (Choose all that apply)
-```java
-4:  List<Integer> ages = new ArrayList<>();
-5:  ages.add(Integer.parseInt("5"));
-6:  ages.add(Integer.valueOf("6"));
-7:  ages.add(7);
-8:  ages.add(null);
-9:  for (int age: ages) System.out.print(age);
-```
-- A. The code compiles.
-- B. The code throws a runtime exception.
-- C. Exactly one of the add statements uses autoboxing.
-- D. Exactly two of the add statements use autoboxing.
-- E. Exactly thress of the add statements use autoboxing.
-
-### A26.
-A, B, D. Lines 5 and 7 use autoboxing to convert an `int` to an `Integer`. Line 6 does not because `valueOf()` returns an `Integer`. Line 8 does not because `null` is not an `int`. The code does compile. However, when the for loop tries to unbox `null` into an `int`, it fails and throws a `NullPointerException`.
-
-### Q27. What is the result of the following?
-```java
-List<String> one = new ArrayList<String>();
-one.add("abc");
-List<String> two = new ArrayList<>();
-two.add("abc");
-if(one == two)
-  System.out.println("A");
-else if (one.equals(two))
-  System.out.println("B");
-else
-  System.out.println("C");
-```
-- A. A
-- B. B
-- C. C
-- D. An exception is thrown.
-- E. The code does not compile.
-
-### A27.
-B. The first `if` statement is `false` becasue the variables do not point to the same object. The second `if` statement is `true` becasue `ArrayList` implements equality to mean the same elements in the same order.
-
-### Q28. Which of the following can be inserted into the blank to create a date of June 21, 2014? (Choose all that apply)
-```java
-import java.time.*;
-
-public class StartOfSummer {
-
-  public static void main(String[] args) {
-    LocalDate date = ____________________
-  }
-  
+public class Order {
+	final String value1 = "1";
+	static String value2 = "2";
+	String value3 = "3";
+	{
+		//CODE SNIPPET 1
+	}
+	static
+	{
+		//CODE SNIPPET 2
+	}
 }
 ```
-- A. `new LocalDate(2014, 5, 21);`
-- B. `new LocalDate(2014, 6, 21);`
-- C. `LocalDate.of(2014, 5, 21);`
-- D. `LocalDate.of(2014, 6, 21);`
-- E. `LocalDate.of(2014, Calendar.JUNE, 21);`
-- F. `LocalDate.of(2014, Month.JUNE, 21);`
+- A. value1 = "d"; instead of //CODE SNIPPET 1
+- B. value2 = "e"; instead of //CODE SNIPPET 1
+- C. value3 = "f"; instead of //CODE SNIPPET 1
+- D. value1 = "g"; instead of //CODE SNIPPET 2
+- E. value2 = "h"; instead of //CODE SNIPPET 2
+- F. value3 = "i"; instead of //CODE SNIPPET 2
+
+### A24.
+
+
+### Q25. Which of the following are true about the following code? (Choose all that apply)
+```java
+public class Create {
+	Create() {
+		System.out.print("1 ");
+	}
+	Create(int num) {
+		System.out.print("2 ");
+	}
+	Create(Integer num) {
+		System.out.print("3 ");
+	}
+	Create(Object num) {
+		System.out.print("4 ");
+	}
+	Create(int... num) {
+		System.out.print("5 ");
+	}
+	public static void main(String[] args) {
+		new Create(100);
+		new Create(100L);
+	}
+}
+```
+- A. The code prints out `2 4 `.
+- B. The code prints out `3 4 `.
+- C. The code prints out `4 2 `.
+- D. The code prints out `4 4 `.
+- E. The code prints `3 4 `if you remove the constructor `Create(int num)`.
+- F. The code prints `4 4 `if you remove the constructor `Create(int num)`.
+- G. The code prints `5 4 `if you remove the constructor `Create(int num)`.
+
+### A25.
+
+
+### Q26. What is the result of the following code?
+```java
+1:	import java.util.function.*;
+2:
+3:	public class Panda {
+4:		int age;
+5:		public static void main(String[] args) {
+6:			Panda p1 = new Panda();
+7:			p1.age = 1;
+8:			check(p1, p -> p.age < 5);
+9:		}
+10:		private static void check(Panda panda, Predicate<Panda> pred) {
+11:			String result = pred.test(panda) ? "match" : "not match";
+12:			System.out.print(result);	
+13:	} }
+```
+- A. `match`
+- B. `not match`
+- C. Compiler error on line 8
+- D. Compiler error on line 10.
+- E. Compiler error on line 11.
+- F. A runtime exception is thrown.
+
+### A26.
+
+
+### Q27. What is the result of the following code?
+```java
+1:	interface Climb {
+2:		boolean isTooHigh(int height, int limit);
+3:	}
+4:
+5:	public class Climber {
+6:		public static void main(String[] args) {
+7:		check((h, l) -> h.append(l).isEmpty(), 5);
+8:		}
+9:		private static void check(Climb climb, int height) {
+10:			if (climb.isTooHigh(height, 10))
+11:				System.out.println("too high");
+12:			else
+13:				System.out.println("ok");
+14:		}
+15:	}
+```
+- A. `ok`
+- B. `too high`
+- C. Compiler error on line 7.
+- D. Compiler error on line 10.
+- E. Compiler error on a different line.
+- F. A runtime exception is thrown.
+
+### A27.
+
+
+### Q28. Which of the following lambda expressions can fill in the blank? (Choose all that apply)
+```java
+List<String> list = new ArrayList<>();
+lsit.removeIf(____________________);
+```
+- A. `s -> s.isEmpty()`
+- B. `s -> {s.isEmpty()}`
+- C. `s -> {s.isEmpty();}`
+- D. `s -> {return s.isEmpty()}`
+- E. `String s -> s.isEmpty()`
+- F. `(String s) -> s.isEmpty()`
 
 ### A28.
-D, F. Options A and B are incorrect because `LocalDate` does not have a public constructor. Option C is incorrect because months start counting with 1 rather than 0. Option E is incorrect because it uses the old pre-Java 8 way of counting months, again beginning at 0. Options D and F are both correct ways of specifying the desired date.
 
-### Q29. What is the output of the following code?
+
+### Q29. Which lamba can replace the `MySecret` class to return the same value? (Choose all that apply)
 ```java
-LocalDate date = LocaleDate.parse("2018-04-30", DateTimeFormatter.ISO_LOCAL_DATE);
-date.plusDays(2);
-date.plusHours(3);
-System.out.println(date.getYear() + " " + date.getMonth() + " " + date.getDayOfMonth());
+interface Secret {
+	String magic(double d);
+}
+
+class MySecret implements Secret {
+	public String magic(double d) {
+		return "Poof";
+	}
+}
 ```
-- A. 2018 APRIL 2
-- B. 2018 APRIL 30
-- C. 2018 MAY 2
-- D. Another date.
-- E. The code does not compile.
-- F. A runtime exception is thrown.
+- A. `caller((e) -> "Poof");`
+- B. `caller((e) -> {"Poof"});`
+- C. `caller((e) -> {String e = ""; "Poof" });`
+- D. `caller((e) -> {String e = ""; return "Poof"; });`
+- E. `caller((e) -> {String e = ""; return "Poof" });`
+- F. `caller((e) -> {String f = ""; return "Poof"; });`
 
 ### A29.
-D. A `LocalDate` does not have a time element. Therefore, it has no method to add hours and the code does not compile.
 
-### Q30. What is the output of the following code?
-```java
-LocalDate date = LocaleDate.of(2018, Month.APRIL, 40);
-System.out.println(date.getYear() + " " + date.getMonth() + " " + date.getDayOfMonth());
-```
-- A. 2018 APRIL 4
-- B. 2018 APRIL 30
-- C. 2018 MAY 10
-- D. Another date.
-- E. The code does not compile.
-- F. A runtime exception is thrown.
-
-### A30.
-F. Java throws an exception if invalid date values are passed. There is not 40th day in April -- or any other month for that matter.
-
-### Q31. What is the output of the following code?
-```java
-LocalDate date = LocaleDate.of(2018, Month.APRIL, 30);
-date.plusDays(2);
-date.plusYears(3);
-System.out.println(date.getYear() + " " + date.getMonth() + " " + date.getDayOfMonth());
-```
-- A. 2018 APRIL 2
-- B. 2018 APRIL 30
-- C. 2018 MAY 2
-- D. 2021 APRIL 2
-- E. 2021 APRIL 30
-- F. 2021 MAY 2
-- G. A runtime exception is thrown.
-
-### A31.
-B. The date starts out as April 30, 2018. Since dates are immutable and the plus methods have their return values ignored, the result is unchanged. Therefore, option B is correct.
-
-### Q32. What is the output of the following code?
-```java
-LocalDateTime d = LocaleDateTime.of(2015, 5, 10, 11, 22, 33);
-Period p = Period.of(1, 2, 3);
-d = d.minus(p);
-DateTimeFormatter f = DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT);
-System.out.println(d.format(f));
-```
-- A. 3/7/14 11:22 AM
-- B. 5/10/15 11:22 AM
-- C. 3/7/14
-- D. 5/10/15
-- E. 11:22 AM
-- F. The code does not compile.
-- G. A runtime exception is thrown.
-
-### A32.
-E. Even though `d` have both date and time, the formmatter only outputs time.
-
-### Q33. What is the output of the following code?
-```java
-LocalDateTime d = LocaleDateTime.of(2015, 5, 10, 11, 22, 33);
-Period p = Period.ofDays(1).ofYears(2);
-d = d.minus(p);
-DateTimeFormatter f = DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT);
-System.out.println(d.format(f));
-```
-- A. 5/9/13 11:22 AM
-- B. 5/10/13 11:22 AM
-- C. 5/9/14
-- D. 5/10/14
-- E. 11:22 AM
-- F. The code does not compile.
-- G. A runtime exception is thrown.
-
-### A33.
-B. `Period` does not allow chaining. Only the last `Period` method called counts, so only the two years are subtracted.

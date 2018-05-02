@@ -6,12 +6,12 @@ public class Ant{
 	_______ void method() {}
 }
 ```
-[ ]A. default
-[X]B. final
-[X]C. private
-[ ]D. Public
-[ ]E. String
-[ ]F. zzz:
+- [ ] A. default
+- [X] B. final
+- [X] C. private
+- [ ] D. Public
+- [ ] E. String
+- [ ] F. zzz:
 
 ### A1.
 

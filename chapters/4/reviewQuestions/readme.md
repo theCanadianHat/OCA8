@@ -70,14 +70,14 @@ public int howMany(boolean b, boolean... b2){
 Option D passes the initial parameter plus two more to turn int a vararg array of size 2. Option G passes the initial parameter plus an array of size 2. Option A does not compile because it does not pass the initial parameter. Options E and F do not compile because they do not declare an array properly. It should be `new boolean[] {true}`. Option B creates a vararg array of size 0 and option C creates a vararg array of size 1.
 
 ### Q6. Which of the following are true? (Choose all that apply)
-- A. Package private access is more lenient than protected access.
-- B. A `public` class that has private fields and package private methods is not visible to classes outside the package.
-- C. You can use access modifiers so only some of the classes in a package see a particular package private class.
-- D. You can use access modifiers to allow read access to all methods, but not any instance variables.
-- E. You can use access modifiers to restrict read access to all classes that begin with the word Test.
+- [ ] A. Package private access is more lenient than protected access.
+- [ ] B. A `public` class that has private fields and package private methods is not visible to classes outside the package.
+- [ ] C. You can use access modifiers so only some of the classes in a package see a particular package private class.
+- [X] D. You can use access modifiers to allow read access to all methods, but not any instance variables.
+- [ ] E. You can use access modifiers to restrict read access to all classes that begin with the word Test.
 
 ### A6.
-
+Option D is correct. This is the common implementation for encapsulation by setting all fields to be private and all methods to be public. Option A is incorrect because allows subclasses access. Option B is incorrect because the class is public. This means that other classes can see the class. However, they cannot call any of the methods or read any of the fields. It is essentially a useless class. Option E is incorrect because Java no such capability.
 
 ### Q7. Given the following `my.school.Classroom` and `my.city.School` class definitions, which line number in `main()` generate a compiler error? (Choose all that apply)
 ```java
@@ -101,36 +101,36 @@ Option D passes the initial parameter plus two more to turn int a vararg array o
 8:			System.out.println(room.floor);
 9:	    System.out.println(room.teacherRoom); } }
 ```
-- A. None, the code compiles fine.
-- B. Line 5
-- C. Line 6
-- D. Line 7
-- E. Line 8
-- F. Line 9
+- [ ] A. None, the code compiles fine.
+- [X] B. Line 5
+- [X] C. Line 6
+- [X] D. Line 7
+- [ ] E. Line 8
+- [X] F. Line 9
 
 ### A7.
-
+The two classes are in different packages, which means private access and default (package private) access will not compile. Additionally, protected access will not compile since `School` does not inherit form `Classroom`. Therefore, only line 8 will compile because it uses public access.
 
 ### Q8. Which of the following are true? (Choose all that apply)
-- A. Encapsulation uses package private instance variables.
-- B. Encapsulation uses private instance variables.
-- C. Encapsulation allows setters.
-- D. Immutability uses package private instance variables.
-- E. Immutability uses private instance variables.
-- F. Immutability allows setters.
+- [ ] A. Encapsulation uses package private instance variables.
+- [X] B. Encapsulation uses private instance variables.
+- [X] C. Encapsulation allows setters.
+- [ ] D. Immutability uses package private instance variables.
+- [X] E. Immutability uses private instance variables.
+- [ ] F. Immutability allows setters.
 
 ### A8.
-
+Encapsulation requires using methods to get and set instance variables so other classes are not directly using them. Instance variables must be private for this to work. Immutability takes this a step farther, allowing only getters, so the instance variables do not change state.
 
 ### Q9. Which are methods using JavaBeans naming conventions for accessors and mutators? (Choose all that apply)
-- A. `public boolean getCanSwim() { return canSwim;}`
-- B. `public boolean canSwim() { return numberWings;}`
-- C. `public int getNumWings() { return numberWings;}`
-- D. `public int numWings() { return numberWings;}`
-- E. `public void setCanSwim(boolean b) {canSwim = b;}`
+- [X] A. `public boolean getCanSwim() { return canSwim;}`
+- [ ] B. `public boolean canSwim() { return numberWings;}`
+- [X] C. `public int getNumWings() { return numberWings;}`
+- [ ] D. `public int numWings() { return numberWings;}`
+- [X] E. `public void setCanSwim(boolean b) {canSwim = b;}`
 
 ### A9.
-
+Options B and D are incorrect because they don't follow the naming convention of beginning with `get/is/set`. Options C and E follow normal getter and setter conventions. Options A is correct, but the book doesn't explain this and is out of scope for the exam so give yourself credit if you answered C and E.
 
 ### Q10. What is the output of the following code?
 ```java
@@ -155,15 +155,15 @@ Option D passes the initial parameter plus two more to turn int a vararg array o
 8:		}
 9:	}
 ```
-- A. swing swing 5
-- B. swing swing 15
-- C. Compiler error on line 2 of Chimp
-- D. Compiler error on line 5 of Chimp
-- E. Compiler error on line 6 of Chimp
-- F. Compiler error on line 7 of Chimp
+- [ ] A. swing swing 5
+- [X] B. swing swing 15
+- [ ] C. Compiler error on line 2 of Chimp
+- [ ] D. Compiler error on line 5 of Chimp
+- [ ] E. Compiler error on line 6 of Chimp
+- [ ] F. Compiler error on line 7 of Chimp
 
 ### A10.
-
+`Rope` runs line 3, setting `LENGTH` to 5, then immediately after runs the `static` initializer, which sets it to 10. Line 5 calls the `static` method normally and prints `swing `. Line 6 also calls the `static` method. Java allows calling a `static` method through an instance variable. Line 7 uses the static import on line 2 to reference `LENGTH`
 
 ### Q11. Which are true of the following code? (Choose all that apply)
 ```java

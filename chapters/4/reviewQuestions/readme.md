@@ -186,15 +186,15 @@ Options B and D are incorrect because they don't follow the naming convention of
 17:		}
 18:	}
 ```
-- A. The code compiles as is.
-- B. There is exactly one compiler error in the code.
-- C. There are exactly two compiler errors in the code.
-- D. If the lines with compiler errors are removed, the output is `climb climb `.
-- E. If the lines with compiler errors are removed, the output is `climb climb `.
-- F. If the lines with compiler errors are removed, the code throws a `NullPointerException`.
+- [ ] A. The code compiles as is.
+- [X] B. There is exactly one compiler error in the code.
+- [ ] C. There are exactly two compiler errors in the code.
+- [ ] D. If the lines with compiler errors are removed, the output is `climb climb `.
+- [X] E. If the lines with compiler errors are removed, the output is `climb climb `.
+- [ ] F. If the lines with compiler errors are removed, the code throws a `NullPointerException`.
 
 ### A11.
-
+Line 10 does not compile because static methods are not allowed to cal instance methods. Even though we are calling `play()` as if it were an instance method and as instance exists, Java knows `play()` is really a static method and treats it as such. If line 10 is removed, the code works. It does not throw a `NullPointerException` on line 16 because `play()` is a static method. Java looks at the type of the reference for `rope2` and translates the call to `Rope.play()`.
 
 ### Q12. What is the output of the following code?
 ```java
@@ -218,15 +218,15 @@ public class Rope {
 	public static int length = 0;
 }
 ```
-- A. 02
-- B. 08
-- C. 2
-- D. 8
-- E. The code does not compile.
-- F. An exception is thrown.
+- [ ] A. 02
+- [ ] B. 08
+- [ ] C. 2
+- [X] D. 8
+- [ ] E. The code does not compile.
+- [ ] F. An exception is thrown.
 
 ### A12.
-
+There are two details to notice in this code. First, note that `RopeSwing` has an instance initializer and not a `static` initializer. Since `RopeSwing` is never constructed, the instance initializer does not run. The other detail is that `length` is `static`. Changes from one object update this common `static` variable.
 
 ### Q13. How many compiler errors are in the following code?
 ```java
@@ -248,15 +248,15 @@ public class Rope {
 16:		}
 17:	}
 ```
-- A. 0
-- B. 1
-- C. 2
-- D. 3
-- E. 4
-- F. 5
+- [ ] A. 0
+- [ ] B. 1
+- [ ] C. 2
+- [ ] D. 3
+- [X] E. 4
+- [ ] F. 5
 
 ### A13.
-
+`static final` variables must be set exactly once, and it must be in the declaration line or in a `static` initialization block. Line 4 doesn't compile because `bench` is not set in either of these locations. List 15 doesn't compile because `final` variables are not allowed to be set after that point. Line 11 doesn't compile because `name` is set twice; once in the declaration and again in the static block. Line 12 doesn't compile because `rightRope` is set twice as well. Both are in static initialization blocks.
 
 ### Q14. Which of the following can replace line 2 to make the code compile? (Choose all that apply)
 ```java
@@ -268,15 +268,15 @@ public class Rope {
 6:		}	
 7:	}
 ```
-- A. import static java.util.Collections;
-- B. import static java.util.Collections.*;
-- C. import static java.util.Collections.sort(ArrayList<String>);
-- D. static import java.util.Collections;
-- E. static import java.util.Collections.*;
-- F. static import java.util.Collections.sort(ArrayList<String>);
+- [ ] A. import static java.util.Collections;
+- [X] B. import static java.util.Collections.*;
+- [ ] C. import static java.util.Collections.sort(ArrayList<String>);
+- [ ] D. static import java.util.Collections;
+- [ ] E. static import java.util.Collections.*;
+- [ ] F. static import java.util.Collections.sort(ArrayList<String>);
 
 ### A14.
-
+The two valid ways to do this are `import static java.util.Collections.*;` and `import static java.util.Collections.sort;`. Option A is incorrect because you can only do a static `import` on `static` members. Classes such as `Collections` require a regular `import`. Option C is nonsense as method parameters have no business in an `import`. Options D, E, and F try to trick you into reversing syntax of `import static`.
 
 ### Q15. What is the result of the following statements?
 ```java
@@ -302,15 +302,15 @@ public class Rope {
 20:		}
 21:	}
 ```
-- A. bytefloatObject
-- B. intfloatObject
-- C. byteObjectfloat
-- D. intObjectfloat
-- E. intObjectObject
-- F. byteObjectObject
+- [ ] A. bytefloatObject
+- [ ] B. intfloatObject
+- [ ] C. byteObjectfloat
+- [ ] D. intObjectfloat
+- [X] E. intObjectObject
+- [ ] F. byteObjectObject
 
 ### A15.
-
+The argument on line 17 is a `short`. It can be promoted to ans `int`, so `print()` on line 5 is invoked. The argument on line 18 is a `boolean`. It can be autoboxed to a `Boolean`, so `print()` on line 11 is invoked. The argument on line 19 is a `double`. It can be autoboxed to a `Double`, so `print()` on line 11 is invoked. Therefore, the output is `intObjectObject` and the correct answer is option E.
 
 ### Q16. What is the result of the following program?
 ```java
@@ -326,14 +326,14 @@ public class Rope {
 10:			System.out.println(value);
 11:	} }
 ```
-- A. -1
-- B. 9
-- C. 81
-- D. Compiler error on line 9.
-- E. Compiler error on a different line.
+- [ ] A. -1
+- [X] B. 9
+- [ ] C. 81
+- [ ] D. Compiler error on line 9.
+- [ ] E. Compiler error on a different line.
 
 ### A16.
-
+Since Java is pass-by-value and the variable on line 8 never gets reassigned, it stays as 9. In the method `square`, `x` starts as 9, `y` becomes 81 and then `x` get set to -1. Line 9 does set `result` to 81. However, we are printing out `value` and that is still 9.
 
 ### Q17. Which of the following are output by the following code? (Choose all that apply)
 ```java
@@ -353,16 +353,16 @@ public class StringBuilders {
 	}
 }
 ```
-- A. s1 = a
-- B. s1 = s1
-- C. s2 = s2
-- D. s2 = s2b
-- E. s3 = a
-- F. s3 = null
-- G. The code does not compile.
+- [ ] A. s1 = a
+- [X] B. s1 = s1
+- [ ] C. s2 = s2
+- [X] D. s2 = s2b
+- [X] E. s3 = a
+- [ ] F. s3 = null
+- [ ] G. The code does not compile.
 
 ### A17.
-
+Since java is pass-by-value, assigning a new object to `a` does not change the caller. Calling `append()` does affect the caller because both the method parameter and caller have a reference to the same object. Finally, returning a value does pass the reference to the caller for assignment to `s3`.
 
 ### Q18. Which of the following are true? (Choose 2)
 - A. `this()` can be called from anywhere is a constructor.

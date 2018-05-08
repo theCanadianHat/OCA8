@@ -365,28 +365,28 @@ public class StringBuilders {
 Since java is pass-by-value, assigning a new object to `a` does not change the caller. Calling `append()` does affect the caller because both the method parameter and caller have a reference to the same object. Finally, returning a value does pass the reference to the caller for assignment to `s3`.
 
 ### Q18. Which of the following are true? (Choose 2)
-- A. `this()` can be called from anywhere is a constructor.
-- B. `this()` can be called from any instance method in a class.
-- C. `this.variableName` can be called from any instance method in the class.
-- D. `this.variableName` can be called from any static method in the class.
-- E. You must include a default constructor in the code if the compiler does not include one.
-- F. You can call the default constructor written by the compiler using `this()`.
-- G. You can access a private constructor with the `main()` method.
+- [ ] A. `this()` can be called from anywhere is a constructor.
+- [ ] B. `this()` can be called from any instance method in a class.
+- [X] C. `this.variableName` can be called from any instance method in the class.
+- [ ] D. `this.variableName` can be called from any static method in the class.
+- [ ] E. You must include a default constructor in the code if the compiler does not include one.
+- [ ] F. You can call the default constructor written by the compiler using `this()`.
+- [X] G. You can access a private constructor with the `main()` method.
 
 ### A18.
-
+Since the `main()` method is in th same class, it can call `private` methods in the class. `this()` may only be called as the first line of a constructor. `this.variableName` can be called from any instance method to refer to an instance variable. It cannot be called from a `static` method because there is no instance of the class to refer to. Option F is tricky. The default constructor is only written by the compiler if no user-defined constructors were provided. `this()` can only be called from a constructor in the same class. Since there can be no user-defined constructors in the class if a default constructor was created, it is impossible for option F to be true.
 
 ### Q19. Which of these class compile and use a default constructor? (Choos all that apply)
-- A. `public class Bird { }`
-- B. `public class Bird { public bird() {} }`
-- C. `public class Bird { public bird(String name) {} }`
-- D. `public class Bird { public Bird() {} }`
-- E. `public class Bird { public Bird(String name) {} }`
-- F. `public class Bird { private Bird(int age) {} }`
-- G. `public class Bird { void Bird() { } }`
+- [X] A. `public class Bird { }`
+- [ ] B. `public class Bird { public bird() {} }`
+- [ ] C. `public class Bird { public bird(String name) {} }`
+- [ ] D. `public class Bird { public Bird() {} }`
+- [ ] E. `public class Bird { public Bird(String name) {} }`
+- [ ] F. `public class Bird { private Bird(int age) {} }`
+- [X] G. `public class Bird { void Bird() { } }`
 
 ### A19.
-
+Options B and C don't compile because the constructor name must match the classname. Since Java is case sensitive, these don't match. Options D, E and F all compile and provide one user-defined constructor. Since a constructor is coded, a default constructor isn't supplied. Option G defines a method, but not a constructor. Option A does not define a constructor, either. Since no constructor is coded, a default constructor is provided for options A and G.
 
 ### Q20. What code can be inserted to have the code print 2?
 ```java
@@ -407,15 +407,15 @@ public class BirdSeed {
 		System.out.println(seed.numberBags)
 	} }
 ```
-- A. Replace line 1 with `BirdSeed(2);`
-- B. Replace line 2 with `BirdSeed(2);`
-- C. Replace line 1 with `new BirdSeed(2);`
-- D. Replace line 2 with `new BirdSeed(2);`
-- E. Replace line 1 with `this(2);`
-- F. Replace line 2 with `this(2);`
+- [ ] A. Replace line 1 with `BirdSeed(2);`
+- [ ] B. Replace line 2 with `BirdSeed(2);`
+- [ ] C. Replace line 1 with `new BirdSeed(2);`
+- [ ] D. Replace line 2 with `new BirdSeed(2);`
+- [X] E. Replace line 1 with `this(2);`
+- [ ] F. Replace line 2 with `this(2);`
 
 ### A20.
-
+Options A and B will not compile because constructors cannot be called without `new`. Options C and D will compile but will create a new object rather than setting the fields in this one. Option F will not compile because `this()` must be the first line of a constructor. Option E is correct.
 
 ### Q21. Which of the following complete the constructor so that this code prints out `50`? (Choose all that apply)
 ```java
@@ -429,15 +429,15 @@ public class Cheetah {
 	}
 }
 ```
-- A. `numSpots = numSpots;`
-- B. `numSpots = this.numSpots;`
-- C. `this.numSpots = numSpots;`
-- D. `numSpots = super.numSpots;`
-- E. `super.numSpots = numSpots;`
-- F. None of the above.
+- [ ] A. `numSpots = numSpots;`
+- [ ] B. `numSpots = this.numSpots;`
+- [X] C. `this.numSpots = numSpots;`
+- [ ] D. `numSpots = super.numSpots;`
+- [ ] E. `super.numSpots = numSpots;`
+- [ ] F. None of the above.
 
 ### A21.
-
+Within the constructor `numSpots` refers to the constructor parameter. The instance variable is hidden because they have the same name. `this.numSpots` tells Java to use the instance variable. In the `main()` method, `numSpots` refers to the instance variable. Option A sets the constructor parameter to itself, leaving the instance variable as 0. Option B sets the constructor parameter to the value of the instance variable, making them both 0. Option C is correct, setting the instance variable to the value of the constructor parameter. Options D and E do not compile.
 
 ### Q22. What is the result of the following?
 ```java
@@ -459,16 +459,16 @@ public class Cheetah {
 8:		}
 9:	}
 ```
-- A. `curur`
-- B. `ucrcr`
-- C. `u ucrcr`
-- D. `u u curcur`
-- E. `u u ucrcr`
-- F. `ur ur urc`
-- G. The code does not compile.
+- [ ] A. `curur`
+- [ ] B. `ucrcr`
+- [ ] C. `u ucrcr`
+- [ ] D. `u u curcur`
+- [X] E. `u u ucrcr`
+- [ ] F. `ur ur urc`
+- [ ] G. The code does not compile.
 
 ### A22.
-
+On line 3 of `OrderDriver`, we refer to `Order` for the first time. At this point that statics in `Order` get initialized. In this case, the statics are the `static` declaration of `result` and the `static` initializer. `result` is `u` at this point. On line 4, `result` is the same because the `static` initialization is only run once. On line 5, we create a new `Order`, which triggers the instance initializers in the order they appear in the file. Now `result` is `ucr`. Line 6 creates another `Order`, triggering another set of initializers. Not `result` is `ucrcr`. Notice how the `static` is on a different line than the initialization code in lines 4-5 of `Order`.
 
 ### Q23. What is the result of the following?
 ```java
@@ -488,16 +488,16 @@ public class Cheetah {
 14:			System.out.println(order.value);
 15:		} }
 ```
-- A. `tacb`
-- B. `tacf`
-- C. `tacbf`
-- D. `tacfb`
-- E. `tacftacb`
--	F. The code does not compile.
-- G. An exception is thrown.
+- [X] A. `tacb`
+- [ ] B. `tacf`
+- [ ] C. `tacbf`
+- [ ] D. `tacfb`
+- [ ] E. `tacftacb`
+-	[ ] F. The code does not compile.
+- [ ] G. An exception is thrown.
 
 ### A23.
-
+Line 4 instantiates an `Order`. Java runs the declarations and instance initializers first in the order they appear. This sets `value` to `tacf`. Line 5 creates another `Order` and initializes `value` to `tacb`. The object on line 5 is stored in the same variable line 4 used. This makes the object created on line 12 unreachable. When `value` is printed, it is the same instance variable in the object created on line 13.
 
 ### Q24. Which of the following will compile when inserted in the following code? (Choose all that apply)
 ```java

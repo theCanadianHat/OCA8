@@ -514,15 +514,15 @@ public class Order {
 	}
 }
 ```
-- A. value1 = "d"; instead of //CODE SNIPPET 1
-- B. value2 = "e"; instead of //CODE SNIPPET 1
-- C. value3 = "f"; instead of //CODE SNIPPET 1
-- D. value1 = "g"; instead of //CODE SNIPPET 2
-- E. value2 = "h"; instead of //CODE SNIPPET 2
-- F. value3 = "i"; instead of //CODE SNIPPET 2
+- [ ] A. value1 = "d"; instead of //CODE SNIPPET 1
+- [X] B. value2 = "e"; instead of //CODE SNIPPET 1
+- [X] C. value3 = "f"; instead of //CODE SNIPPET 1
+- [ ] D. value1 = "g"; instead of //CODE SNIPPET 2
+- [X] E. value2 = "h"; instead of //CODE SNIPPET 2
+- [ ] F. value3 = "i"; instead of //CODE SNIPPET 2
 
 ### A24.
-
+`value1` is a `final` instance variable. It can only be set once: in the variable declaration, and instance initializer, or a constructor. Option A does not compile because the `final` variable was already set in the declaration. `value2` is a `static` variable. Both instance and static initializers are able to access `static` variables, making options B a `static` initializer does not have access to instance variables.
 
 ### Q25. Which of the following are true about the following code? (Choose all that apply)
 ```java
@@ -548,16 +548,16 @@ public class Create {
 	}
 }
 ```
-- A. The code prints out `2 4 `.
-- B. The code prints out `3 4 `.
-- C. The code prints out `4 2 `.
-- D. The code prints out `4 4 `.
-- E. The code prints `3 4 `if you remove the constructor `Create(int num)`.
-- F. The code prints `4 4 `if you remove the constructor `Create(int num)`.
-- G. The code prints `5 4 `if you remove the constructor `Create(int num)`.
+- [X] A. The code prints out `2 4 `.
+- [ ] B. The code prints out `3 4 `.
+- [ ] C. The code prints out `4 2 `.
+- [ ] D. The code prints out `4 4 `.
+- [X] E. The code prints `3 4 `if you remove the constructor `Create(int num)`.
+- [ ] F. The code prints `4 4 `if you remove the constructor `Create(int num)`.
+- [ ] G. The code prints `5 4 `if you remove the constructor `Create(int num)`.
 
 ### A25.
-
+The `100` parameter is an `int` and so calls the matching `int` constructor. When this constructor is removed, Java looks for the next most specific constructor. Java prefers autoboxing to varargs, and so chooses the `Integer` constructor. The `100L` parameter is a `long`. Since it can't be converted into a smaller type, it is autoboxed into a `Long` and then the constructor for Object is called.
 
 ### Q26. What is the result of the following code?
 ```java
@@ -575,15 +575,15 @@ public class Create {
 12:			System.out.print(result);	
 13:	} }
 ```
-- A. `match`
-- B. `not match`
-- C. Compiler error on line 8
-- D. Compiler error on line 10.
-- E. Compiler error on line 11.
-- F. A runtime exception is thrown.
+- [X] A. `match`
+- [ ] B. `not match`
+- [ ] C. Compiler error on line 8
+- [ ] D. Compiler error on line 10.
+- [ ] E. Compiler error on line 11.
+- [ ] F. A runtime exception is thrown.
 
 ### A26.
-
+This code is correct. Line 8 creates a lambda expression that checks if the age is less than 5. Since there is only one parameter and it does not specify a type, the parentheses around the type
 
 ### Q27. What is the result of the following code?
 ```java
@@ -603,30 +603,30 @@ public class Create {
 14:		}
 15:	}
 ```
-- A. `ok`
-- B. `too high`
-- C. Compiler error on line 7.
-- D. Compiler error on line 10.
-- E. Compiler error on a different line.
-- F. A runtime exception is thrown.
+- [ ] A. `ok`
+- [ ] B. `too high`
+- [X] C. Compiler error on line 7.
+- [ ] D. Compiler error on line 10.
+- [ ] E. Compiler error on a different line.
+- [ ] F. A runtime exception is thrown.
 
 ### A27.
-
+The interface takes two `int` parameters. The code on line 7 attempts to use them as if one is a `StringBuilder`. It is tricky to use types in a lambda when that are implicitly specified. Remember to check the interface for the real type. <-- From the book. I think this might have been overlooked in editing. `check()` takes a `Climb` object and an `int`. The lambda on line 7 is implying the type of `h` has a method `append()`. We know `Climb` doesn't have that method signature in it's interface. Therefore compiler error.
 
 ### Q28. Which of the following lambda expressions can fill in the blank? (Choose all that apply)
 ```java
 List<String> list = new ArrayList<>();
 lsit.removeIf(____________________);
 ```
-- A. `s -> s.isEmpty()`
-- B. `s -> {s.isEmpty()}`
-- C. `s -> {s.isEmpty();}`
-- D. `s -> {return s.isEmpty()}`
-- E. `String s -> s.isEmpty()`
-- F. `(String s) -> s.isEmpty()`
+- [X] A. `s -> s.isEmpty()`
+- [ ] B. `s -> {s.isEmpty()}`
+- [ ] C. `s -> {s.isEmpty();}`
+- [X] D. `s -> {return s.isEmpty();}`
+- [ ] E. `String s -> s.isEmpty()`
+- [X] F. `(String s) -> s.isEmpty()`
 
 ### A28.
-
+`removeIf()` expects a `Predicate`, which takes a parameter list of one parameter using the specified type. Options B and C are incorrect because they do not use the `return` keyword. It is required inside braces for lambda bodies. Option E is incorrect because it is missing the parentheses around the parameter list. This is only optional for a single parameter with an inferred type.
 
 ### Q29. Which lamba can replace the `MySecret` class to return the same value? (Choose all that apply)
 ```java
@@ -640,12 +640,12 @@ class MySecret implements Secret {
 	}
 }
 ```
-- A. `caller((e) -> "Poof");`
-- B. `caller((e) -> {"Poof"});`
-- C. `caller((e) -> {String e = ""; "Poof" });`
-- D. `caller((e) -> {String e = ""; return "Poof"; });`
-- E. `caller((e) -> {String e = ""; return "Poof" });`
-- F. `caller((e) -> {String f = ""; return "Poof"; });`
+- [X] A. `caller((e) -> "Poof");`
+- [ ] B. `caller((e) -> {"Poof"});`
+- [ ] C. `caller((e) -> {String e = ""; "Poof" });`
+- [ ] D. `caller((e) -> {String e = ""; return "Poof"; });`
+- [ ] E. `caller((e) -> {String e = ""; return "Poof" });`
+- [X] F. `caller((e) -> {String f = ""; return "Poof"; });`
 
 ### A29.
-
+Option B is incorrect because it does not use the `return` keyword. Options C, D, and E are incorrect because the variable `e` is already use from the lambda and cannot be redefined. Additionally, option C is missing the `return` keyword and option E is missing the semicolon.

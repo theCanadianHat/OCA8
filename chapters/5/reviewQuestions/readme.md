@@ -2,11 +2,11 @@
 
 ### Q1. What modifiers are implicitly applied to all interface methods? (Choose all that apply)
 - [ ] A. `protected`
-- [X] B. 'public'
-- [ ] C. 'static'
-- [ ] D. 'void'
-- [X] E. 'abstract'
-- [ ] F. 'default'
+- [X] B. `public`
+- [ ] C. `static`
+- [ ] D. `void`
+- [X] E. `abstract`
+- [ ] F. `default`
 
 ### A1.
 

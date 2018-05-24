@@ -83,12 +83,12 @@ public class Beaver extends Rodent {
 
 
 ### Q5. Which of the following may only be hidden and not overridden? (Choose all that apply)
-- [ ] A. ```java private``` instance methods
-- [ ] B. ```java protected``` instance methods
-- [ ] C. ```java public``` instance methods
-- [ ] D. ```java static``` variables
-- [ ] E. ```java public``` variables
-- [ ] F. ```java private``` variables
+- [ ] A. `private` instance methods
+- [ ] B. `protected` instance methods
+- [ ] C. `public` instance methods
+- [ ] D. `static` variables
+- [ ] E. `public` variables
+- [ ] F. `private` variables
 
 ### A5.
 

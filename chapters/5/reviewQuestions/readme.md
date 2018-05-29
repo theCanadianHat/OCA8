@@ -93,101 +93,89 @@ public class Beaver extends Rodent {
 ### A5.
 
 
-### Q6. Which of the following are true? (Choose all that apply)
-- [ ] A. Package private access is more lenient than protected access.
-- [ ] B. A `public` class that has private fields and package private methods is not visible to classes outside the package.
-- [ ] C. You can use access modifiers so only some of the classes in a package see a particular package private class.
-- [X] D. You can use access modifiers to allow read access to all methods, but not any instance variables.
-- [ ] E. You can use access modifiers to restrict read access to all classes that begin with the word Test.
+### Q6. Choose the correct statement about the following code:
+```java
+1:	interface HasExoskeleton {
+2:		abstract int getNumberOfSections();
+3:	}
+4:	abstract class Insect implements HasExoskeleton {
+5:		abstract int getNumberOfLegs();
+6:	}
+7:	public class Beetle extends Insect {
+8:		int getNumberOfLegs() { return 6; }
+9:	}
+```
+- [ ] A. It compiles and runs without issue.
+- [ ] B. The code will not compile because of line 2.
+- [X] C. The code will not compile because of line 4.
+- [ ] D. The code will not compile because of line 7.
+- [ ] E. It compiles but throws and exception at runtime.
 
 ### A6.
-Option D is correct. This is the common implementation for encapsulation by setting all fields to be private and all methods to be public. Option A is incorrect because allows subclasses access. Option B is incorrect because the class is public. This means that other classes can see the class. However, they cannot call any of the methods or read any of the fields. It is essentially a useless class. Option E is incorrect because Java no such capability.
 
-### Q7. Given the following `my.school.Classroom` and `my.city.School` class definitions, which line number in `main()` generate a compiler error? (Choose all that apply)
-```java
-1: 	package my.school;
-2:	public class Classroom{
-3:		private int roomNumber;
-4:		protected String teacherName;
-5:		static int globalKey = 54321;
-6:		public int floor = 3;
-7:		Classroom(int r, String t){
-8:			roomNumber = r;
-9:			teacherName = t; } }
 
-1:	package my.city;
-2:	import my.school;
-3:	public class School{
-4:		public static void main(String[] args){
-5:			System.out.println(Classroom.globalKey);
-6:			Classroom room = new Classroom(101, "Mrs. Anderson")
-7:			System.out.println(room.roomNumber);
-8:			System.out.println(room.floor);
-9:	    System.out.println(room.teacherRoom); } }
-```
-- [ ] A. None, the code compiles fine.
-- [X] B. Line 5
-- [X] C. Line 6
-- [X] D. Line 7
-- [ ] E. Line 8
-- [X] F. Line 9
+### Q7. Which of the following statements about polymorphism are true? (Choose all that apply)
+- [ ] A. A reference to an object may be cast to a subclass of the object without an explicit case.
+- [ ] B. If a method takes a superclass of three objects, then any of those classes may be passed as a parameter to the method.
+- [ ] C. A method that takes a parameter with type `java.lang.Object` will take any reference.
+- [ ] D. All cast exceptions can be detected at compile-time.
+- [ ] E. By defining a public instance method in the superclass, you guarantee that the specific method will be called in the parent class at runtime.
 
 ### A7.
-The two classes are in different packages, which means private access and default (package private) access will not compile. Additionally, protected access will not compile since `School` does not inherit form `Classroom`. Therefore, only line 8 will compile because it uses public access.
 
-### Q8. Which of the following are true? (Choose all that apply)
-- [ ] A. Encapsulation uses package private instance variables.
-- [X] B. Encapsulation uses private instance variables.
-- [X] C. Encapsulation allows setters.
-- [ ] D. Immutability uses package private instance variables.
-- [X] E. Immutability uses private instance variables.
-- [ ] F. Immutability allows setters.
+
+### Q8. Choose the correct statement about the following code:
+```java
+1:	public interface Herbivore {
+2:		int amount = 10;
+3:		public static void eatGrass();
+4:		public int chew() {
+5:			return 13;
+6:		}
+7:	}
+```
+- [ ] A. It compiles and runs without issue.
+- [ ] B. The code will not compile because of line 2.
+- [ ] C. The code will not compile because of line 3.
+- [ ] D. The code will not compile because of line 4.
+- [ ] E. The code will not compile because of line 2 and 3.
+- [ ] F. The code will not compile because of line 3 and 4.
 
 ### A8.
-Encapsulation requires using methods to get and set instance variables so other classes are not directly using them. Instance variables must be private for this to work. Immutability takes this a step farther, allowing only getters, so the instance variables do not change state.
 
-### Q9. Which are methods using JavaBeans naming conventions for accessors and mutators? (Choose all that apply)
-- [X] A. `public boolean getCanSwim() { return canSwim;}`
-- [ ] B. `public boolean canSwim() { return numberWings;}`
-- [X] C. `public int getNumWings() { return numberWings;}`
-- [ ] D. `public int numWings() { return numberWings;}`
-- [X] E. `public void setCanSwim(boolean b) {canSwim = b;}`
+
+### Q9. Choose the correct statement about the following code:
+```java
+1:	public interface CanFly {
+2:		void fly();	
+3:	}
+4:	interface HasWings {
+5:		public abstract Object getWingSpan();	
+6:	}
+7:	abstract class Falcon implements CanFly, HasWings {
+8:	}
+```
+- [ ] A. It compiles without issue.
+- [ ] B. The code will not compile because of line 2.
+- [ ] C. The code will not compile because of line 4.
+- [ ] D. The code will not compile because of line 5.
+- [ ] E. The code will not compile because of line 2 and 5.
+- [ ] F. The code will not compile because the class Falcon doesn't implement the interface methods.
 
 ### A9.
-Options B and D are incorrect because they don't follow the naming convention of beginning with `get/is/set`. Options C and E follow normal getter and setter conventions. Options A is correct, but the book doesn't explain this and is out of scope for the exam so give yourself credit if you answered C and E.
 
-### Q10. What is the output of the following code?
-```java
-1:	package rope;
-2:	public class Rope {
-3:		public static int LENGTH = 5;
-4:		static {
-5:			LENGTH = 10;
-6:		}
-7:		public static void swing() {
-8:			System.out.println("swing ");
-9:	}
-10:	}
 
-1:	import rope.*;
-2:	import static rope.Rope.*;
-3:	public class Chimp {
-4:		public static void main(String[] args){
-5:			Rope.swing();
-6:			new Rope().swing();
-7:			System.out.println(LENGTH);
-8:		}
-9:	}
-```
-- [ ] A. swing swing 5
-- [X] B. swing swing 15
-- [ ] C. Compiler error on line 2 of Chimp
-- [ ] D. Compiler error on line 5 of Chimp
-- [ ] E. Compiler error on line 6 of Chimp
-- [ ] F. Compiler error on line 7 of Chimp
+### Q10. Which statements are true for both abstract classes and interfaces? (Choose all that apply)
+- [ ] A. All methods within them are assumed to be abstract.
+- [ ] B. Both can contain `public static final` variables.
+- [ ] C. Both can be extended using the `extend` keyword.
+- [ ] D. Both can contain default methods.
+- [ ] E. Both can contain static methods.
+- [ ] F. Neither can be instantiated directly.
+- [ ] G. Both inherit `java.land.Object`.
 
 ### A10.
-`Rope` runs line 3, setting `LENGTH` to 5, then immediately after runs the `static` initializer, which sets it to 10. Line 5 calls the `static` method normally and prints `swing `. Line 6 also calls the `static` method. Java allows calling a `static` method through an instance variable. Line 7 uses the static import on line 2 to reference `LENGTH`
+
 
 ### Q11. Which are true of the following code? (Choose all that apply)
 ```java

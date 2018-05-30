@@ -177,152 +177,91 @@ public class Beaver extends Rodent {
 ### A10.
 
 
-### Q11. Which are true of the following code? (Choose all that apply)
-```java
-1:  public class Rope {
-2:  	public static void swing() {
-3:  		System.out.print("swing ")
-4:  	}
-5:  	public void climb() {
-6:  		System.out.println("climb ")
-7:  	}
-8:		public static void play() {
-9:			swing();
-10:			climb();
-11:		}
-12:		public static void main(String[] args){
-13:			Rope rope = new Rope();
-14:			rope.play();
-15:			Rope rope2 = null;
-16:			rope2.play();
-17:		}
-18:	}
-```
-- [ ] A. The code compiles as is.
-- [X] B. There is exactly one compiler error in the code.
-- [ ] C. There are exactly two compiler errors in the code.
-- [ ] D. If the lines with compiler errors are removed, the output is `climb climb `.
-- [X] E. If the lines with compiler errors are removed, the output is `climb climb `.
-- [ ] F. If the lines with compiler errors are removed, the code throws a `NullPointerException`.
+### Q11. What modifiers are assumed for all interface variables? (Choose all that apply)
+- [ ] A. `public`
+- [ ] B. `protected`
+- [ ] C. `private`
+- [ ] D. `static`
+- [ ] E. `final`
+- [ ] F. `abstract`
 
 ### A11.
-Line 10 does not compile because static methods are not allowed to cal instance methods. Even though we are calling `play()` as if it were an instance method and as instance exists, Java knows `play()` is really a static method and treats it as such. If line 10 is removed, the code works. It does not throw a `NullPointerException` on line 16 because `play()` is a static method. Java looks at the type of the reference for `rope2` and translates the call to `Rope.play()`.
+
 
 ### Q12. What is the output of the following code?
 ```java
-import rope.*;
-import static rope.Rope.*;
-public class RopeSwing {
-	private static Rope rope1 = new Rope();
-	private static Rope rope2= new Rope();
-	{
-		System.out.println(rope1.length);
-	}
-	public static void main(String[] args) {
-		rope1.length = 2;
-		rope2.length = 8;
-		System.out.println(rope1.length);
-	}
-}
-
-package rope;
-public class Rope {
-	public static int length = 0;
-}
+1:	interface Nocturnal {
+2:		default boolean isBlind() { return true; }
+3:	}
+4:	public class Owl implements Nocturnal {
+5:		public boolean isBlind() { return false; }
+6:	  public static void main(String[] args) {
+7:			Nocturnal nocturnal = (Nocturnal) new Owl();	
+8:			System.out.println(nocturnal.isBlind());
+9:		}
+10:	}
 ```
-- [ ] A. 02
-- [ ] B. 08
-- [ ] C. 2
-- [X] D. 8
-- [ ] E. The code does not compile.
-- [ ] F. An exception is thrown.
+- [ ] A. true
+- [ ] B. false
+- [ ] C. The code will not compile because of line 2.
+- [ ] D. The code will not compile because of line 5.
+- [ ] E. The code will not compile because of line 7.
+- [ ] F. The code will not compile because of line 8.
 
 ### A12.
-There are two details to notice in this code. First, note that `RopeSwing` has an instance initializer and not a `static` initializer. Since `RopeSwing` is never constructed, the instance initializer does not run. The other detail is that `length` is `static`. Changes from one object update this common `static` variable.
 
-### Q13. How many compiler errors are in the following code?
+
+### Q13. What is the output of the following code?
 ```java
-1:	public class RopeSwing {
-2:		private static final String leftRope;	
-3:		private static final String rightRope;	
-4:		private static final String bench;	
-5:		private static final String name = "name";	
-6:		static {
-7:			leftRope = "left";
-8:			rightRope = "right";
-9:		}
-10:		static {
-11:			name = "name";
-12:			rightRope = "right"
-13:		}
-14:		public static void main(String[] args) {
-15:			bench = "bench";
-16:		}
-17:	}
+1:	class Arthropod {
+2:		public void printName(double input) {System.out.print("Arthropod"); }
+3:	}
+4:	public class Spider extends Arthropod {
+5:		public void printName(int input) { System.out.print("Spider"); }	
+6:		public static void main(String[] args) {
+7:			Spider spider = new Spider();
+8:			spider.printName(4);
+9:			spider.printName(9.0);
+10:		}
+11:	}
 ```
-- [ ] A. 0
-- [ ] B. 1
-- [ ] C. 2
-- [ ] D. 3
-- [X] E. 4
-- [ ] F. 5
+- [ ] A. SpiderArthropod
+- [ ] B. ArthropodSpider
+- [ ] C. SpiderSpider
+- [ ] D. The code will not compile because of line 5.
+- [ ] E. The code will not compile because of line 9.
 
 ### A13.
-`static final` variables must be set exactly once, and it must be in the declaration line or in a `static` initialization block. Line 4 doesn't compile because `bench` is not set in either of these locations. List 15 doesn't compile because `final` variables are not allowed to be set after that point. Line 11 doesn't compile because `name` is set twice; once in the declaration and again in the static block. Line 12 doesn't compile because `rightRope` is set twice as well. Both are in static initialization blocks.
 
-### Q14. Which of the following can replace line 2 to make the code compile? (Choose all that apply)
+
+### Q14. Which statements are true about the following code? (Choose all that apply)
 ```java
-1:	import java.util.*;
-2:	// INSERT CODE HERE
-3:	public class Imports {
-4:		public void method(ArrayList<String> list){
-5:			sort(list);
-6:		}	
-7:	}
+1:	interface HasVocalCords {
+2:		public abstract void makeSound();
+3:	}
+4:	public interface CanBark extends HasVocalCords {
+5:		public void bark();
+6:	}	
 ```
-- [ ] A. import static java.util.Collections;
-- [X] B. import static java.util.Collections.*;
-- [ ] C. import static java.util.Collections.sort(ArrayList<String>);
-- [ ] D. static import java.util.Collections;
-- [ ] E. static import java.util.Collections.*;
-- [ ] F. static import java.util.Collections.sort(ArrayList<String>);
+- [ ] A. The `CanBark` interface doesn't compile.
+- [ ] B. A class that implements `HasVocalCords` must override the `makeSound()` method.
+- [ ] C. A class that implements `CanBark` inherits both the `makeSound()` and `bark()` methods.
+- [ ] D. A class that implements `CanBark` only inherits the `bark()` method.
+- [ ] E. An interface cannot extend another interface.
 
 ### A14.
-The two valid ways to do this are `import static java.util.Collections.*;` and `import static java.util.Collections.sort;`. Option A is incorrect because you can only do a static `import` on `static` members. Classes such as `Collections` require a regular `import`. Option C is nonsense as method parameters have no business in an `import`. Options D, E, and F try to trick you into reversing syntax of `import static`.
 
-### Q15. What is the result of the following statements?
-```java
-1:	public class Test {
-2:		public void print(byte x) {
-3:			System.out.print("byte");	
-4:		}
-5:		public void print(int x) {
-6:			System.out.print("int");
-7:		}
-8:		public void print(float x) {
-9:			System.out.print("float");
-10:		}
-11:		public void print(Object x) {
-12:			System.out.print("Object");
-13:		}
-14:		public static void main(String[] args) {
-15:			Test t = new Test();
-16:			short s = 123;
-17:			t.print(s);
-18:			t.print(true);
-19:			t.print(6.789);
-20:		}
-21:	}
-```
-- [ ] A. bytefloatObject
-- [ ] B. intfloatObject
-- [ ] C. byteObjectfloat
-- [ ] D. intObjectfloat
-- [X] E. intObjectObject
+
+### Q15. Which of the following is true about a concrete subclass? (Choose all that apply)
+- [ ] A. A concrete subclass can be declared as `abstract`.
+- [ ] B. A concrete subclass must implement all inherited abstract methods.
+- [ ] C. A concrete subclass must implement all methods defined in an inherited interface.
+- [ ] D. A concrete subclass cannot be marked as `final`.
+- [ ] E. Abstract methods cannot be overridden by a concrete subclass.
 - [ ] F. byteObjectObject
 
 ### A15.
-The argument on line 17 is a `short`. It can be promoted to ans `int`, so `print()` on line 5 is invoked. The argument on line 18 is a `boolean`. It can be autoboxed to a `Boolean`, so `print()` on line 11 is invoked. The argument on line 19 is a `double`. It can be autoboxed to a `Double`, so `print()` on line 11 is invoked. Therefore, the output is `intObjectObject` and the correct answer is option E.
+
 
 ### Q16. What is the result of the following program?
 ```java

@@ -376,7 +376,7 @@ Since java is pass-by-value, assigning a new object to `a` does not change the c
 ### A18.
 Since the `main()` method is in th same class, it can call `private` methods in the class. `this()` may only be called as the first line of a constructor. `this.variableName` can be called from any instance method to refer to an instance variable. It cannot be called from a `static` method because there is no instance of the class to refer to. Option F is tricky. The default constructor is only written by the compiler if no user-defined constructors were provided. `this()` can only be called from a constructor in the same class. Since there can be no user-defined constructors in the class if a default constructor was created, it is impossible for option F to be true.
 
-### Q19. Which of these class compile and use a default constructor? (Choos all that apply)
+### Q19. Which of these class compile and use a default constructor? (Choose all that apply)
 - [X] A. `public class Bird { }`
 - [ ] B. `public class Bird { public bird() {} }`
 - [ ] C. `public class Bird { public bird(String name) {} }`

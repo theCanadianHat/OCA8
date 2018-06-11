@@ -5,11 +5,11 @@
 - [X] B. `public`
 - [ ] C. `static`
 - [ ] D. `void`
-- [X] E. `abstract`
+- [ ] E. `abstract`
 - [ ] F. `default`
 
 ### A1.
-
+All interface methods are implicitly `public`, so option B is correct and option A is not. Interface methods may be declared as `static` or `default` but are never implicitly added, so options C and F are incorrect. Option D is incorrect -- `void` is not a modifier; it is a return type. Option E is a tricky one, because prior to Java 8 all interface methods would be assumed to be `abstract`. Since Java 8 now includes `default` and `static` methods and they are never abstract, you cannot assume the `abstract` modifier will be implicitly applied to all methods by the compiler.
 
 ### Q2. What is the output of the following code?
 ```java
@@ -28,14 +28,14 @@
 13:	}
 ```
 - [ ] A. Platypus
-- [X] B. Mammal
+- [ ] B. Mammal
 - [ ] C. PlatypusMammal
 - [ ] D. MammalPlatypus
-- [ ] E. The code will not compile because of line 7.
+- [X] E. The code will not compile because of line 7.
 - [ ] F. The code will not compile because of line 11.
 
 ### A2.
-
+The code will not compile because the parent class `Mammal` doesn't define a no-argument constructor, so the first line of a `Platypus` constructor should be an explicit call to `super(int age)`.
 
 ### Q3. Which of the following statements can be inserted in the blank line so that the code will compile successfully? (Choose all that apply)
 ```java
@@ -51,12 +51,12 @@ public class TurtleFrog extends Frog {}
 - [X] A. `Frog`
 - [X] B. `TurtleFrog`
 - [ ] C. `BrazilianHornFrog`
-- [ ] D. `CanHop`
+- [X] D. `CanHop`
 - [X] E. `Object`
 - [ ] F. `Long`
 
 ### A3.
-
+The blank can be filled with any class or interface that is a supertype of `TurtleFrog`. Option A is a superclass ot `TurtleFrog`, and option B is the same class, so both are correct. `BrazilianHornedFrog` is not a superclass of `TurtleFrog`, so option C is incorrect. `TurtleFrog` inherits the `CanHop` interface, so option D is correct. All classes inherit `Object`, so option E is correct. Finally, `Long` is an unrelated class that is not a superclass of `TurtleFrog`, and therefore incorrect.
 
 ### Q4. Which statement(s) are correct about the following code? (Choose all that apply)
 ```java
@@ -74,24 +74,24 @@ public class Beaver extends Rodent {
 }
 ```
 - [ ] A. It will compile without issue.
-- [X] B. It fails to compile because the type of the exception the method throws is a subclass of the type of exception the parent method throws.
-- [ ] C. It fails to compile because the return types are not covariant.
+- [ ] B. It fails to compile because the type of the exception the method throws is a subclass of the type of exception the parent method throws.
+- [X] C. It fails to compile because the return types are not covariant.
 - [ ] D. It fails to compile because the method is `protected` in the parent class and `public` in the subclass.
 - [X] E. It fails to compile because of the `static` modifier mismatch between the two methods.
 
 ### A4.
-
+The code doesn't compile, so option A is incorrect. Option B is also not correct because the rules for overriding a method allow a subclass to define a method with an exception that is a subclass of the exception in the parent method. Option C is correct because the return types are not covariant; in particular, `Number` is not a subclass of `Integer`. Option D is incorrect because the subclass defines a method that is more accessible that the method in the parent class, which is allowed. Finally, option E is correct because the method declared as `static` in the parent class and not so in the child class. For non-private methods in the parent class, both methods must use `static` (hide) or neither should use `static` (override).
 
 ### Q5. Which of the following may only be hidden and not overridden? (Choose all that apply)
-- [ ] A. `private` instance methods
+- [X] A. `private` instance methods
 - [ ] B. `protected` instance methods
 - [ ] C. `public` instance methods
-- [ ] D. `static` variables
-- [ ] E. `public` variables
-- [ ] F. `private` variables
+- [X] D. `static` variables
+- [X] E. `public` variables
+- [X] F. `private` variables
 
 ### A5.
-
+First off, options B and C are incorrect because `protected` and `public` methods may be overridden, not hidden. Option A is correct because `private` methods are always hidden in a subclass. Option D is also correct because `static` methods cannot be overridden, only hidden. Options E and F are correct because variables may only be hidden, regardless of the access modifier.
 
 ### Q6. Choose the correct statement about the following code:
 ```java

@@ -1,6 +1,6 @@
 # OCA8
 ### Examples and Chapter Review Questions for Oracle Certified Associate 8
-This is a simple repository for example programs and chapter review questions written while studying for the Oracle Certified Associate Java SE 8 Programmer I exam; using the study guide by Jenanne Boyarsky and Scott Selikoff. 
+This is a simple repository for example programs and chapter review questions written while studying for the Oracle Certified Associate Java SE 8 Programmer I exam; using the study guide by Jenanne Boyarsky and Scott Selikoff. I do not take credit for the questions and answers found in this repo. They are simply another repition for study. The example code is somewhat made up following examples in the study guide.
 
 ### Game Plan
 I am going to study at least a single hour every day. When a chapter is complete I will complete the review questions for that chapter. 

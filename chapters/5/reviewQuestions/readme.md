@@ -107,22 +107,23 @@ First off, options B and C are incorrect because `protected` and `public` method
 ```
 - [ ] A. It compiles and runs without issue.
 - [ ] B. The code will not compile because of line 2.
-- [X] C. The code will not compile because of line 4.
-- [ ] D. The code will not compile because of line 7.
+- [ ] C. The code will not compile because of line 4.
+- [X] D. The code will not compile because of line 7.
 - [ ] E. It compiles but throws and exception at runtime.
 
 ### A6.
+The code fails to compile because `Beetle`, the first concrete subclass, doesn't implement `getNumberOfSections()`, which is inherited as an abstract method; therefore, option D is correct. Option B is incorrect because there is nothing wrong with this interface method definition. Option C is incorrect because an abstract class is not required to implement any abstract methods, including those inherited from an interface. Option E is incorrect because the code fails at compilation-time.
 
 
 ### Q7. Which of the following statements about polymorphism are true? (Choose all that apply)
 - [ ] A. A reference to an object may be cast to a subclass of the object without an explicit case.
-- [ ] B. If a method takes a superclass of three objects, then any of those classes may be passed as a parameter to the method.
-- [ ] C. A method that takes a parameter with type `java.lang.Object` will take any reference.
+- [X] B. If a method takes a superclass of three objects, then any of those classes may be passed as a parameter to the method.
+- [X] C. A method that takes a parameter with type `java.lang.Object` will take any reference.
 - [ ] D. All cast exceptions can be detected at compile-time.
 - [ ] E. By defining a public instance method in the superclass, you guarantee that the specific method will be called in the parent class at runtime.
 
 ### A7.
-
+A reference to an object requires an explicit cast if referenced with a subclass, so option A is incorrect. If the cast is to a superclass reference, then an explicit cast is not required. Because of polymorphic parameters, if a method takes the superclass of an object as a parameter, then any subclass references may be used without a cast, so an option B is correct. All objects extend `java.land.Object`, so if a method takes that type, any valid object, including `null`, may be passed; therefore, option C is correct. Some cast exceptions can be detected as errors at compile=time, but others can only be detected at runtime, so D is incorrect. Due to the nature of polymorphism, a `public` instance method can be overridden in a subclass and calls to it will be replaced even in the superclass it was defined, so E is incorrect.
 
 ### Q8. Choose the correct statement about the following code:
 ```java
@@ -139,10 +140,10 @@ First off, options B and C are incorrect because `protected` and `public` method
 - [ ] C. The code will not compile because of line 3.
 - [ ] D. The code will not compile because of line 4.
 - [ ] E. The code will not compile because of line 2 and 3.
-- [ ] F. The code will not compile because of line 3 and 4.
+- [X] F. The code will not compile because of line 3 and 4.
 
 ### A8.
-
+The interface variable amount is correctly declared, with `public`, `static` and `final` being assumed and automatically inserted by the compiler, so option B is incorrect. The method declaration for `eatGrass()` on line 3 is incorrect because the method has been marked `static` but no method body has been provided. The method declaration for `chew()` on line 4 is also incorrect, since an interface method that provides a body must be marked as `default` or `static` explicitly. Therefore, option F is the correct answer since this code contains two compile-time errors.
 
 ### Q9. Choose the correct statement about the following code:
 ```java
@@ -155,7 +156,7 @@ First off, options B and C are incorrect because `protected` and `public` method
 7:	abstract class Falcon implements CanFly, HasWings {
 8:	}
 ```
-- [ ] A. It compiles without issue.
+- [X] A. It compiles without issue.
 - [ ] B. The code will not compile because of line 2.
 - [ ] C. The code will not compile because of line 4.
 - [ ] D. The code will not compile because of line 5.
@@ -163,19 +164,19 @@ First off, options B and C are incorrect because `protected` and `public` method
 - [ ] F. The code will not compile because the class Falcon doesn't implement the interface methods.
 
 ### A9.
-
+Although the definition of methods on lines 2 and 5 vary, both will be converted to `public abstract` be the compiler. Line 4 is fine, because an interface an have `public` or default access. Finally, the class `Falcon` doesn't need to implement the interface methods because it is marked as `abstract`. Therefore, the code will compile without issue.
 
 ### Q10. Which statements are true for both abstract classes and interfaces? (Choose all that apply)
 - [ ] A. All methods within them are assumed to be abstract.
-- [ ] B. Both can contain `public static final` variables.
-- [ ] C. Both can be extended using the `extend` keyword.
+- [X] B. Both can contain `public static final` variables.
+- [X] C. Both can be extended using the `extend` keyword.
 - [ ] D. Both can contain default methods.
-- [ ] E. Both can contain static methods.
-- [ ] F. Neither can be instantiated directly.
+- [X] E. Both can contain static methods.
+- [X] F. Neither can be instantiated directly.
 - [ ] G. Both inherit `java.land.Object`.
 
 ### A10.
-
+Option A is wrong, because an abstract class may contain concrete methods. Since Java 8, interfaces may also contain concrete methods in form of static or default methods. Although all variables in interfaces are assumed to be `public static final`, abstract classes may contain them as well, so option B is correct. Both abstract classes and interfaces can be extended with the `extend` keyword, so option C is correct. Only interfaces can contain default methods, so option D is incorrect. Both abstract classes and interfaces can contain static methods, so option E is correct. Finally, though an instance of an object that implements an interface inherits `java.lang.Object`, the interface itself doesn't; otherwise, Java would support multiple inheritance for objects, which it doesn't. Therefore, option G is incorrect.
 
 ### Q11. What modifiers are assumed for all interface variables? (Choose all that apply)
 - [ ] A. `public`

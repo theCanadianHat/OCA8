@@ -20,3 +20,6 @@ Time again for another update. I have done well this week. I can't say the same 
 
 #### 05/02/18
 Well I'm back on chapter 4. Finally completed the catch up work. Keep trucking. Two more to go then practice exams. This is seeming somewhat real. 
+
+#### 06/13/18
+Finishing up the review questions for Chapter 5, then its on to example code. Then just one more chapter and practice exams. I took off last week while I was on vacation, so it only seems like it is taking longer than usual. 

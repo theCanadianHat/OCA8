@@ -179,15 +179,15 @@ Although the definition of methods on lines 2 and 5 vary, both will be converted
 Option A is wrong, because an abstract class may contain concrete methods. Since Java 8, interfaces may also contain concrete methods in form of static or default methods. Although all variables in interfaces are assumed to be `public static final`, abstract classes may contain them as well, so option B is correct. Both abstract classes and interfaces can be extended with the `extend` keyword, so option C is correct. Only interfaces can contain default methods, so option D is incorrect. Both abstract classes and interfaces can contain static methods, so option E is correct. Finally, though an instance of an object that implements an interface inherits `java.lang.Object`, the interface itself doesn't; otherwise, Java would support multiple inheritance for objects, which it doesn't. Therefore, option G is incorrect.
 
 ### Q11. What modifiers are assumed for all interface variables? (Choose all that apply)
-- [ ] A. `public`
+- [X] A. `public`
 - [ ] B. `protected`
 - [ ] C. `private`
-- [ ] D. `static`
+- [X] D. `static`
 - [ ] E. `final`
-- [ ] F. `abstract`
+- [X] F. `abstract`
 
 ### A11.
-
+Interface variables are assumed to be `public static final`; therefore options A, D, and E are correct. Options B and C are incorrect because interface variables must be public -- interfaces are implemented by classes, not inherited by interfaces. Option F is incorrect because variables can never be abstract.
 
 ### Q12. What is the output of the following code?
 ```java
@@ -203,14 +203,14 @@ Option A is wrong, because an abstract class may contain concrete methods. Since
 10:	}
 ```
 - [ ] A. true
-- [ ] B. false
+- [X] B. false
 - [ ] C. The code will not compile because of line 2.
 - [ ] D. The code will not compile because of line 5.
 - [ ] E. The code will not compile because of line 7.
 - [ ] F. The code will not compile because of line 8.
 
 ### A12.
-
+This code compiles and runs without issue, outputting `false`, so option B is the correct answer. The first declaration of `isBlind()` is as a default interface method, assumed `public`. The second declaration is `isBlind()` correctly overrides the default interface method. Finally, the newly created `Owl` instance may be automatically cast to a `Nocturnal` reference without an explicit cast, although adding it doesn't break the code.
 
 ### Q13. What is the output of the following code?
 ```java
@@ -226,14 +226,14 @@ Option A is wrong, because an abstract class may contain concrete methods. Since
 10:		}
 11:	}
 ```
-- [ ] A. SpiderArthropod
+- [X] A. SpiderArthropod
 - [ ] B. ArthropodSpider
 - [ ] C. SpiderSpider
 - [ ] D. The code will not compile because of line 5.
 - [ ] E. The code will not compile because of line 9.
 
 ### A13.
-
+The code compiles and runs with issue, so options E and F are incorrect. The `printName()` method is an overload in `Spider`, not and override, so both methods may be called. The call on line 8 references the version that takes an `int` as input defined in the `Spider` class, and the call on line 9 references the version in the `Arthropod` class that takes a `double`. Therefore; `SpiderArthropod` is output and option A is the correct answer.
 
 ### Q14. Which statements are true about the following code? (Choose all that apply)
 ```java
@@ -246,23 +246,22 @@ Option A is wrong, because an abstract class may contain concrete methods. Since
 ```
 - [ ] A. The `CanBark` interface doesn't compile.
 - [ ] B. A class that implements `HasVocalCords` must override the `makeSound()` method.
-- [ ] C. A class that implements `CanBark` inherits both the `makeSound()` and `bark()` methods.
+- [X] C. A class that implements `CanBark` inherits both the `makeSound()` and `bark()` methods.
 - [ ] D. A class that implements `CanBark` only inherits the `bark()` method.
 - [ ] E. An interface cannot extend another interface.
 
 ### A14.
-
+The code compiles without issue, so option A is wrong. Option B is incorrect, since an abstract class could implement `HasVocalCords` without the need to override the `makeSound()` method. Option C is correct; any class that implements `CanBark` automatically inherits its methods, as well as any inherited methods defined in the parent interface. Because option C is correct, it follows that option D is incorrect. Finally, an interface can extend multiple interfaces, so option F is incorrect.
 
 ### Q15. Which of the following is true about a concrete subclass? (Choose all that apply)
 - [ ] A. A concrete subclass can be declared as `abstract`.
-- [ ] B. A concrete subclass must implement all inherited abstract methods.
+- [X] B. A concrete subclass must implement all inherited abstract methods.
 - [ ] C. A concrete subclass must implement all methods defined in an inherited interface.
 - [ ] D. A concrete subclass cannot be marked as `final`.
 - [ ] E. Abstract methods cannot be overridden by a concrete subclass.
-- [ ] F. byteObjectObject
 
 ### A15.
-
+Concrete classes are, by definition, not abstract, so option A is incorrect. A concrete class must implement all inherited abstract methods, so option B is correct. Option C is incorrect; a superclass may have already implemented an inherited interface, so the concrete subclass would not need to implement the method. Concrete classes can be both `final` and not `final`, so option D is incorrect. Finally, abstract methods must be overridden by a concrete subclass, so option E is incorrect.
 
 ### Q16. What is the output of the following code?
 ```java

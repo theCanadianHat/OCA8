@@ -280,10 +280,10 @@ Concrete classes are, by definition, not abstract, so option A is incorrect. A c
 - [ ] B. Lizard laying eggs
 - [ ] C. The code will not compile because of line 4.
 - [ ] D. The code will not compile because of line 5.
-- [ ] E. The code will not compile because of line 9.
+- [X] E. The code will not compile because of line 9.
 
 ### A16.
-
+The code doesn't compile, so options A and B are incorrect. The issue with line 9 is that `layEggs()` is marked as `final` in the superclass `Reptile`, which means it cannot be overridden. There are no errors on any other lines, so options C and D are incorrect.
 
 ### Q17. What is the output of the following code?
 ```java
@@ -299,13 +299,13 @@ Concrete classes are, by definition, not abstract, so option A is incorrect. A c
 10:	}
 ```
 - [ ] A. Orca diving
-- [ ] B. The code will not compile because of line 2.
+- [X] B. The code will not compile because of line 2.
 - [ ] C. The code will not compile because of line 8.
 - [ ] D. The code will not compile because of line 9.
 - [ ] E. The output cannot be determined from the code provided.
 
 ### A17.
-
+This may look like a complex question, but it is actually quite easy. Line 2 contains an invalid definition of an abstract method. Abstract methods cannot contain a body, so the code will not compile and option B is the correct answer. If the body `{}` was removed from line 2, the code would still not compile. although it would be line 8 that would through the compilation error. Since `dive()` in `Whale` is abstract and `Orca` extends `Whale`, then it must implement an overridden version of `dive()`. The method on line 9 is an overloaded version of `dive()`, not an overridden version, so `Orca` is an invalid subclass ans will not compile.
 
 ### Q18. What is the output of the following code? (Choose all that apply)
 ```java
@@ -324,11 +324,11 @@ Concrete classes are, by definition, not abstract, so option A is incorrect. A c
 - [ ] B. 4
 - [ ] C. 6
 - [ ] D. The code will not compile because of line 5.
-- [ ] E. The code will not compile because of line 6.
+- [X] E. The code will not compile because of line 6.
 - [ ] F. The code will not compile because of line 8.
 
 ### A18.
-
+The doesn't compile because line 6 contains an incompatible override of the `getNumberOfGills(int input)` method defined in the `Aquatic` interface. In particular, `int` and `String` are not covariant return types, since `String` is not a subclass of `int`. Note that line 5 compiles without issue; `getNumberOfGills()` is an overloaded method that is not related to the parent interface method that takes an `int` value.
 
 ### Q19. Which of the following statements can be inserted in the blank so that the code will compile successfully? (Choose all that apply)
 ```java
@@ -343,15 +343,15 @@ public class SnakeHandler {
 	}
 }
 ```
-- [ ] A. `new Cobra()`
+- [X] A. `new Cobra()`
 - [ ] B. `new GardenSnake()`
-- [ ] C. `new Snake()`
+- [X] C. `new Snake()`
 - [ ] D. `new Object()`
 - [ ] E. `new String("Snake")`
-- [ ] F. `null`
+- [X] F. `null`
 
 ### A19.
-
+First off, `Cobra` is a subclass of `Snake`, so option A can be used. `GardenSnake` is not defined as a subclass of `Snake`, so it cannot be used and option B is incorrect. The class `Snake` is not marked as `abstract`, so it can be instantiated and passed, so option C is correct. Next, `Object` is a superclass of `Snake`, not a subclass, so it also cannot be used and option D is incorrect. The class `String` is unrelated in this example, so option E is incorrect. Finally, a `null` value can always be passed as an object value, regardless of type, so option F is correct.
 
 ### Q20. What is the result of the following code?
 ```java
@@ -366,10 +366,11 @@ public class SnakeHandler {
 9:		protected void fly() { System.out.println("Pelican is flying"); }
 10:	}
 ```
-- [ ] A. Bird is flying
+- [X] A. Bird is flying
 - [ ] B. Pelican is flying
 - [ ] C. The code will not compile because of line 4.
 - [ ] D. The code will not compile because of line 5.
 - [ ] E. The code will not compile because of line 9.
 
 ### A20.
+The code compiles and runs without issue, so options C, D, and E are incorrect. The trick here is that the method `fly()` is marked as `private` in the parent class `Bird`, which means it may only be hidden, not overridden. With hidden methods, the specific method used depends on where it is referenced. Since it is reference within the `Bird`  class, the method declared on line 2 was used, and option A is correct. Alternatively, if the method was referenced withing the `Pelican` class, or if the method in the parent class was marked as `protected` and overridden in the subclass, then the method on line 9 would have been used.

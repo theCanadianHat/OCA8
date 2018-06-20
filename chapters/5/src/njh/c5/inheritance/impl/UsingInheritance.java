@@ -1,14 +1,21 @@
-package njh.c5.inheritance.impl;
-
-import njh.c5.inheritance.api.HasInfo;
 /*
 	Inheritance in Java is the process in which
-	a child subclass automatically gets all public 
+	a child subclass automatically has all public 
 	and protected primitives, objects, or methods.
 
 	Java supports single inheritance.
 
-	All classes extend java.lang.Object
+	All classes extend java.lang.Object; this is added by 
+	the compiler if not explicitly implemented.
+*/
+package njh.c5.inheritance.impl;
+
+import njh.c5.inheritance.api.HasInfo;
+
+/*
+	This example class will focus on classes
+	that are a subclass. To define a subclass;
+	you extend the base class.
 */
 public class UsingInheritance {
 	public static void main(String[] args) {
@@ -27,11 +34,16 @@ public class UsingInheritance {
 	}
 }
 
-//parent class
+/************************************************/
+/*****************PARENT CLASS*******************/
+/************************************************/
+//also referred to as: base class, super class
 class Animal {
 	private String name;
+	
 	protected int numOfLegs;
 
+	//Default Constructor (No argument constructor)
 	public Animal(){
 		this.name = "Unnamed Animal";
 		this.numOfLegs = 0;
@@ -51,12 +63,13 @@ class Animal {
 	}
 }
 
+/************************************************/
+/***************CHILDREN CLASSES*****************/
+/************************************************/
 /*
 	Must use the extends keyword to create a 
 	subclass.
-
 */
-//children classes
 class Mammal extends Animal {
 	/*
 	This is an empty class. It extends Animal
@@ -72,7 +85,13 @@ class Mammal extends Animal {
 
 class Reptile extends Animal implements HasInfo{
 	public Reptile(String name){
-		super(name);
+		super(name); 
+		/*
+		a call to a super class constructor must be the first line in a constructor
+		if there is not explicit call to a super class constructor the compiler will add
+		a call to the default constructor of the super class
+		if no default constructor for the super class exists a compilation error occurs
+		*/
 	}
 
 	public String getInfo(){

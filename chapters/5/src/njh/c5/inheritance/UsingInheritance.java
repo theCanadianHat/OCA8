@@ -8,9 +8,9 @@
 	All classes extend java.lang.Object; this is added by 
 	the compiler if not explicitly implemented.
 */
-package njh.c5.inheritance.impl;
+package njh.c5.inheritance;
 
-import njh.c5.inheritance.api.HasInfo;
+import njh.c5.inheritance.interfeaces.HasInfo;
 
 /*
 	This example class will focus on classes

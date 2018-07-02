@@ -23,7 +23,7 @@ public class OverridingMethods{
 
 		/*
 			You get the functionality of the right side of the
-			assignment. In this case BaseClass.
+			assignment. In this case ChildClass.
 		*/
 		BaseClass base2 = new ChildClass();
 		base2.sayHi();	//Hello
@@ -31,8 +31,10 @@ public class OverridingMethods{
 		try{
 			base.throwCustomException();
 		}catch(MyCheckedException1 e){
-			System.out.println("Caught a MyCheckedException1!");
+			System.out.println("Caught a MyCheckedException1! First");
 		}
+
+
 
 		try{
 			base2.throwCustomException();
@@ -43,7 +45,7 @@ public class OverridingMethods{
 			catch would get hit. 
 		*/
 		catch(MyCheckedException2 e){
-			System.out.println("Caught a MyCheckedException2!");
+			System.out.println("Caught a MyCheckedException2! First");
 		}
 		/*
 			this catch is needed because I could have called
@@ -53,11 +55,13 @@ public class OverridingMethods{
 		*/
 		catch(MyCheckedException1 e){
 			if(e instanceof MyCheckedException2){
-				System.out.println("Caught a MyCheckedException2!");
+				System.out.println("Caught a MyCheckedException2! Second");
 			}else{
-				System.out.println("Caught a MyCheckedException1!");
+				System.out.println("Caught a MyCheckedException1! Second");
 			}
 		}
+
+
 
 		try{
 			base2.throwException();
